@@ -1,0 +1,9 @@
+*.log
+.idea/
+node_modules/
+psd/
+*.iml
+/target/
+src/main/resources/assets/css/styles.css
+bundle.js
+package-lock.json
