@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public interface BytesSource {
-    BytesSource print(OutputStream out) throws IOException;
+    long print(OutputStream out) throws IOException;
 
 
     class Envelope implements BytesSource {
@@ -15,7 +15,7 @@ public interface BytesSource {
         }
 
         @Override
-        public final BytesSource print(OutputStream out) throws IOException {
+        public final long print(OutputStream out) throws IOException {
             return origin.print(out);
         }
     }

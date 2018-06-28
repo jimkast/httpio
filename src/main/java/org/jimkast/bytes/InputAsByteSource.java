@@ -6,7 +6,6 @@ import org.cactoos.Input;
 import org.cactoos.io.LengthOf;
 import org.cactoos.io.OutputTo;
 import org.cactoos.io.TeeInput;
-import org.cactoos.scalar.IoCheckedScalar;
 
 public final class InputAsByteSource implements BytesSource {
     private final Input input;
@@ -18,8 +17,7 @@ public final class InputAsByteSource implements BytesSource {
     }
 
     @Override
-    public BytesSource print(OutputStream out) throws IOException {
-        new IoCheckedScalar<>(new LengthOf(new TeeInput(input, new OutputTo(out)), size)).value();
-        return this;
+    public long print(OutputStream out) throws IOException {
+        return new LengthOf(new TeeInput(input, new OutputTo(out)), size).longValue();
     }
 }
