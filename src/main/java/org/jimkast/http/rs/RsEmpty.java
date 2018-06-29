@@ -1,24 +1,11 @@
 package org.jimkast.http.rs;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.util.Collections;
-import org.jimkast.http.Header;
-import org.jimkast.http.HttpOutput;
+import org.jimkast.http.HttpOut;
+import org.jimkast.http.body.RsBasic;
+import org.jimkast.http.head.HeadRsEmpty;
 
-public final class RsEmpty implements HttpOutput {
-    @Override
-    public String line() {
-        return "HTTP1/1 200 OK";
-    }
-
-    @Override
-    public Iterable<Header> headers() {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public long print(OutputStream out) throws IOException {
-        return 0;
+public final class RsEmpty extends HttpOut.Envelope {
+    public RsEmpty() {
+        super(new RsBasic(new HeadRsEmpty()));
     }
 }
