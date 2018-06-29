@@ -11,6 +11,10 @@ public final class InputAsByteSource implements BytesSource {
     private final Input input;
     private final int size;
 
+    public InputAsByteSource(Input input) {
+        this(input, 4096);
+    }
+
     public InputAsByteSource(Input input, int size) {
         this.input = input;
         this.size = size;

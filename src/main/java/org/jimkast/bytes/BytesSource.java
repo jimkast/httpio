@@ -7,6 +7,9 @@ public interface BytesSource {
     long print(OutputStream out) throws IOException;
 
 
+    BytesSource EMPTY = out -> 0;
+
+
     class Envelope implements BytesSource {
         private final BytesSource origin;
 
