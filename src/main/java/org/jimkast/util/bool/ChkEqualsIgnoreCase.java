@@ -2,10 +2,10 @@ package org.jimkast.util.bool;
 
 import java.util.function.Predicate;
 
-public final class MatchEqualsIgnoreCase implements Predicate<String> {
+public final class ChkEqualsIgnoreCase implements Predicate<String> {
     private final CharSequence comp;
 
-    public MatchEqualsIgnoreCase(CharSequence comp) {
+    public ChkEqualsIgnoreCase(CharSequence comp) {
         this.comp = comp;
     }
 

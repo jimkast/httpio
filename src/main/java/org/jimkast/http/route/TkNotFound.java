@@ -8,7 +8,7 @@ import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
 import org.takes.HttpException;
 
-public final class RouteNotFound implements HttpRoute, HttpServerMapping {
+public final class TkNotFound implements HttpRoute, HttpServerMapping {
     @Override
     public boolean test(HttpHead head) {
         return false;

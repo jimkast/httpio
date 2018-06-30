@@ -1,4 +1,4 @@
-package org.jimkast.http.head;
+package org.jimkast.http.rq;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -8,10 +8,11 @@ import java.util.Collections;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 
-public final class RsEmpty implements HttpIn, HttpOut {
+public final class RqEmpty implements HttpIn, HttpOut {
+
     @Override
     public String line() {
-        return "HTTP/1.1 200 OK";
+        return "GET / HTTP1/1";
     }
 
     @Override

@@ -2,10 +2,10 @@ package org.jimkast.util.bool;
 
 import java.util.function.Predicate;
 
-public final class MatchStartsWith implements Predicate<String> {
+public final class ChkStartsWith implements Predicate<String> {
     private final CharSequence start;
 
-    public MatchStartsWith(CharSequence start) {
+    public ChkStartsWith(CharSequence start) {
         this.start = start;
     }
 

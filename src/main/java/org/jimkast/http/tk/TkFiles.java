@@ -6,7 +6,7 @@ import org.jimkast.bytes.InputAsByteSource;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
-import org.jimkast.http.route.RouteNotFound;
+import org.jimkast.http.route.TkNotFound;
 import org.jimkast.http.rq.RqUri;
 import org.jimkast.http.rs.RsBasic;
 import org.jimkast.http.rs.RsWithHeaders;
@@ -16,7 +16,7 @@ public final class TkFiles implements HttpServerMapping {
     private final HttpServerMapping notFound;
 
     public TkFiles(File root) {
-        this(root, new RouteNotFound());
+        this(root, new TkNotFound());
     }
 
     public TkFiles(File root, HttpOut notFound) {

@@ -11,7 +11,7 @@ public final class TkRoute implements HttpServerMapping {
     private final Iterable<HttpRoute> routes;
 
     public TkRoute(HttpRoute... routes) {
-        this(new RouteNotFound(), Arrays.asList(routes));
+        this(new TkNotFound(), Arrays.asList(routes));
     }
 
     public TkRoute(HttpServerMapping Default, HttpRoute... routes) {

@@ -4,10 +4,10 @@ import java.util.function.Predicate;
 import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
 
-public final class RouteUri extends HttpRoute.Envelope {
-    public RouteUri(Predicate<String> uriCheck, HttpServerMapping mapping) {
+public final class RtForUri extends HttpRoute.Envelope {
+    public RtForUri(Predicate<String> uriCheck, HttpServerMapping mapping) {
         super(
-            new RouteSimple(
+            new RtSimple(
                 new ChkForUri(uriCheck),
                 mapping
             )

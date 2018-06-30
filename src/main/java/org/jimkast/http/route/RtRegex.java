@@ -5,14 +5,14 @@ import org.jimkast.util.bool.ChkRegex;
 import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
 
-public final class RouteRegex extends HttpRoute.Envelope {
-    public RouteRegex(String pattern, HttpServerMapping mapping) {
+public final class RtRegex extends HttpRoute.Envelope {
+    public RtRegex(String pattern, HttpServerMapping mapping) {
         this(Pattern.compile(pattern, Pattern.CASE_INSENSITIVE | Pattern.DOTALL), mapping);
     }
 
-    public RouteRegex(Pattern pattern, HttpServerMapping mapping) {
+    public RtRegex(Pattern pattern, HttpServerMapping mapping) {
         super(
-            new RouteUri(
+            new RtForUri(
                 new ChkRegex(pattern),
                 mapping
             )

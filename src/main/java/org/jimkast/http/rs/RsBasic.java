@@ -8,7 +8,6 @@ import org.jimkast.bytes.BytesSource;
 import org.jimkast.bytes.InputAsByteSource;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpOut;
-import org.jimkast.http.head.RsEmpty;
 import org.jimkast.http.head.HttpHeadBasic;
 import org.jimkast.http.head.HttpStatusLine;
 

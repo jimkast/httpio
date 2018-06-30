@@ -4,6 +4,7 @@ import java.util.Arrays;
 import org.cactoos.iterable.Joined;
 import org.cactoos.list.Mapped;
 import org.jimkast.http.HttpHead;
+import org.jimkast.http.rs.RsEmpty;
 
 public final class HeadWithHeaders implements HttpHead {
     private final HttpHead origin;

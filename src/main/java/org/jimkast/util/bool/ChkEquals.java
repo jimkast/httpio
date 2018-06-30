@@ -2,10 +2,10 @@ package org.jimkast.util.bool;
 
 import java.util.function.Predicate;
 
-public final class MatchEquals<T> implements Predicate<T> {
+public final class ChkEquals<T> implements Predicate<T> {
     private final T comp;
 
-    public MatchEquals(T comp) {
+    public ChkEquals(T comp) {
         this.comp = comp;
     }
 

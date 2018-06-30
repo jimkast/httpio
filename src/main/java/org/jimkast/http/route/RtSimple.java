@@ -5,11 +5,11 @@ import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
 
-public final class RouteSimple implements HttpRoute {
+public final class RtSimple implements HttpRoute {
     private final Predicate<HttpHead> check;
     private final HttpServerMapping mapping;
 
-    public RouteSimple(Predicate<HttpHead> check, HttpServerMapping mapping) {
+    public RtSimple(Predicate<HttpHead> check, HttpServerMapping mapping) {
         this.check = check;
         this.mapping = mapping;
     }
