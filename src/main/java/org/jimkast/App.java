@@ -6,7 +6,7 @@ import org.jimkast.http.bk.BkBasic;
 import org.jimkast.http.bk.BkCloseStreams;
 import org.jimkast.http.bk.BxHttp;
 import org.jimkast.http.route.ChkMethod;
-import org.jimkast.http.route.ChkUri;
+import org.jimkast.http.route.ChkForUri;
 import org.jimkast.http.route.RouteRegex;
 import org.jimkast.http.route.RouteSimple;
 import org.jimkast.http.route.TkRoute;
@@ -14,7 +14,7 @@ import org.jimkast.http.rs.RsText;
 import org.jimkast.http.tk.TkFiles;
 import org.jimkast.http.tk.TkFixed;
 import org.jimkast.util.bool.And;
-import org.jimkast.util.bool.RegexMatchAll;
+import org.jimkast.util.bool.ChkRegex;
 import org.takes.http.BkSafe;
 import org.takes.http.Exit;
 import org.takes.http.FtBasic;
@@ -30,7 +30,7 @@ public final class App {
                                 new TkFixed(new RsText("Hello world!")),
                                 new RouteSimple(
                                     new And<>(
-                                        new ChkUri(new RegexMatchAll("/ccc")),
+                                        new ChkForUri(new ChkRegex("/ccc")),
                                         new ChkMethod("GET")
                                     ),
                                     new TkFixed(new RsText("eee 235 346 rthfdghgf"))

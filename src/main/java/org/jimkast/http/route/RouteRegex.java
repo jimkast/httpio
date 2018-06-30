@@ -1,7 +1,7 @@
 package org.jimkast.http.route;
 
 import java.util.regex.Pattern;
-import org.jimkast.util.bool.RegexMatchAll;
+import org.jimkast.util.bool.ChkRegex;
 import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
 
@@ -13,7 +13,7 @@ public final class RouteRegex extends HttpRoute.Envelope {
     public RouteRegex(Pattern pattern, HttpServerMapping mapping) {
         super(
             new RouteUri(
-                new RegexMatchAll(pattern),
+                new ChkRegex(pattern),
                 mapping
             )
         );

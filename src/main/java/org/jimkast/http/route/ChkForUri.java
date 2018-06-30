@@ -5,14 +5,14 @@ import org.jimkast.util.bool.MatchEqualsIgnoreCase;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.rq.RqUri;
 
-public final class ChkUri implements Predicate<HttpHead> {
+public final class ChkForUri implements Predicate<HttpHead> {
     private final Predicate<String> match;
 
-    public ChkUri() {
+    public ChkForUri() {
         this(new MatchEqualsIgnoreCase("/"));
     }
 
-    public ChkUri(Predicate<String> match) {
+    public ChkForUri(Predicate<String> match) {
         this.match = match;
     }
 

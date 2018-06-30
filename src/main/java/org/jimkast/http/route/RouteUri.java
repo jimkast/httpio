@@ -8,7 +8,7 @@ public final class RouteUri extends HttpRoute.Envelope {
     public RouteUri(Predicate<String> uriCheck, HttpServerMapping mapping) {
         super(
             new RouteSimple(
-                new ChkUri(uriCheck),
+                new ChkForUri(uriCheck),
                 mapping
             )
         );
