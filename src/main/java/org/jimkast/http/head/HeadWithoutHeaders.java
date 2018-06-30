@@ -37,7 +37,7 @@ public final class HeadWithoutHeaders implements HttpHead {
     @Override
     public Iterable<String> headers() {
         return new Filtered<>(
-            input -> !headers.test(new SubstringBefore(input, ":").toString()),
+            input -> !headers.test(new SubstringBefore(input, ":").toString().trim()),
             origin.headers()
         );
     }

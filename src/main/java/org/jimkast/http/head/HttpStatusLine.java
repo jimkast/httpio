@@ -5,28 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.jimkast.text.LazyText;
 import org.jimkast.util.Mapping;
-import org.jimkast.http.HttpHead;
 
-public final class HeadWithStatus extends HttpHead.Envelope {
-    public HeadWithStatus(Number status) {
-        this(status, new HttpDefaultReason(status));
+public final class HttpStatusLine extends LazyText {
+    public HttpStatusLine(Number code) {
+        this(code, new HttpDefaultReason(code));
     }
 
-    public HeadWithStatus(Number status, CharSequence msg) {
-        this(status, msg, new HeadRsEmpty());
-    }
-
-    public HeadWithStatus(Number status, HttpHead origin) {
-        this(status, new HttpDefaultReason(status), origin);
-    }
-
-    public HeadWithStatus(Number status, CharSequence msg, HttpHead origin) {
-        super(
-            new HeadWithLine(
-                new LazyText(() -> "HTTP1/1 " + status + " " + msg),
-                origin
-            )
-        );
+    public HttpStatusLine(Number code, CharSequence reason) {
+        super(() -> "HTTP1/1 " + code + " " + reason);
     }
 
 

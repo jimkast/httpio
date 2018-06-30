@@ -4,8 +4,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import org.jimkast.bytes.BytesSource;
 
-public interface HttpOut extends HttpMessage, BytesSource {
-    HttpHead head();
+public interface HttpOut extends HttpHead, BytesSource {
+    @Override
+    String line();
+
+    @Override
+    Iterable<String> headers();
 
     @Override
     long print(OutputStream out) throws IOException;
@@ -19,12 +23,17 @@ public interface HttpOut extends HttpMessage, BytesSource {
         }
 
         @Override
-        public final HttpHead head() {
-            return origin.head();
+        public final String line() {
+            return origin.line();
         }
 
         @Override
-        public long print(OutputStream out) throws IOException {
+        public final Iterable<String> headers() {
+            return origin.headers();
+        }
+
+        @Override
+        public final long print(OutputStream out) throws IOException {
             return origin.print(out);
         }
     }

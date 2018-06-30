@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import org.cactoos.io.InputOf;
 import org.jimkast.bytes.BytesSource;
-import org.jimkast.http.HttpHead;
-import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpServerMapping;
+import org.jimkast.http.rq.RqBasic;
 import org.takes.Request;
 import org.takes.rq.RqLive;
 
@@ -25,37 +25,21 @@ public final class BxHttp implements BytesExchange {
         List<String> headers = new ArrayList<>();
         boolean first = true;
         for (String s : req.head()) {
-            if(first) {
+            if (first) {
                 first = false;
                 line = s;
             } else {
                 headers.add(s);
             }
         }
-        String l = line;
-        HttpHead head = new HttpHead() {
-            @Override
-            public String line() {
-                return l;
-            }
-
-            @Override
-            public Iterable<String> headers() {
-                return headers;
-            }
-        };
-        return new BsHttpOutFull(exchange.exchange(
-            new HttpIn() {
-                @Override
-                public HttpHead head() {
-                    return head;
-                }
-
-                @Override
-                public InputStream stream() {
-                    return input;
-                }
-            }
-        ));
+        return new BsHttpOutFull(
+            exchange.exchange(
+                new RqBasic(
+                    line,
+                    headers,
+                    new InputOf(input)
+                )
+            )
+        );
     }
 }

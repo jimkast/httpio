@@ -4,8 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.cactoos.Input;
 
-public interface HttpIn extends HttpMessage, Input {
-    HttpHead head();
+public interface HttpIn extends HttpHead, Input {
+    @Override
+    String line();
+
+    @Override
+    Iterable<String> headers();
 
     @Override
     InputStream stream() throws IOException;
@@ -19,8 +23,13 @@ public interface HttpIn extends HttpMessage, Input {
         }
 
         @Override
-        public final HttpHead head() {
-            return origin.head();
+        public String line() {
+            return origin.line();
+        }
+
+        @Override
+        public Iterable<String> headers() {
+            return origin.headers();
         }
 
         @Override

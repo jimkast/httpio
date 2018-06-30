@@ -14,7 +14,7 @@ public final class BsHttpOutFull implements BytesSource {
 
     @Override
     public long print(OutputStream out) throws IOException {
-        new BsHttpHead(res.head()).print(out);
+        new BsHttpHead(res).print(out);
         res.print(out);
         return 0;
     }

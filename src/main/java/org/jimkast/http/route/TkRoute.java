@@ -26,7 +26,7 @@ public final class TkRoute implements HttpServerMapping {
     @Override
     public HttpOut exchange(HttpIn in) {
         for (HttpRoute route : routes) {
-            if(route.test(in.head())) {
+            if(route.test(in)) {
                 return route.map().exchange(in);
             }
         }

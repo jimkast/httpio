@@ -5,12 +5,12 @@ import java.nio.file.Paths;
 import org.jimkast.http.bk.BkBasic;
 import org.jimkast.http.bk.BkCloseStreams;
 import org.jimkast.http.bk.BxHttp;
-import org.jimkast.http.body.RsWithBody;
 import org.jimkast.http.route.ChkMethod;
 import org.jimkast.http.route.ChkUri;
 import org.jimkast.http.route.RouteRegex;
 import org.jimkast.http.route.RouteSimple;
 import org.jimkast.http.route.TkRoute;
+import org.jimkast.http.rs.RsText;
 import org.jimkast.http.tk.TkFiles;
 import org.jimkast.http.tk.TkFixed;
 import org.jimkast.util.bool.And;
@@ -27,19 +27,18 @@ public final class App {
                     new BkBasic(
                         new BxHttp(
                             new TkRoute(
-                                new TkFixed(new RsWithBody("Hello world!")),
+                                new TkFixed(new RsText("Hello world!")),
                                 new RouteSimple(
                                     new And<>(
                                         new ChkUri(new RegexMatchAll("/ccc")),
                                         new ChkMethod("GET")
                                     ),
-                                    new TkFixed(new RsWithBody("eee 235 346 rthfdghgf"))
+                                    new TkFixed(new RsText("eee 235 346 rthfdghgf"))
                                 ),
-                                new RouteRegex("/aaa", new TkFixed(new RsWithBody("aaaaaaaaaaaaaaaaaaaaa"))),
-                                new RouteRegex("/bbb", new TkFixed(new RsWithBody("fgchcf 56y5"))),
-                                new RouteRegex("/news/.*", new TkFiles(Paths.get("/data/images").toFile(), new RsWithBody("File not found.")))
+                                new RouteRegex("/aaa", new TkFixed(new RsText("aaaaaaaaaaaaaaaaaaaaa"))),
+                                new RouteRegex("/bbb", new TkFixed(new RsText("fgchcf 56y5"))),
+                                new RouteRegex("/news/.*", new TkFiles(Paths.get("/data/images").toFile(), new RsText("File not found.")))
                             )
-
                         )
                     )
                 )
