@@ -21,6 +21,7 @@ public final class RsServlet implements Func<HttpServletResponse, HttpServletRes
             res.addHeader(parts[0].trim(), parts[1].trim());
         }
         out.print(res.getOutputStream());
+        res.getOutputStream().flush();
         return res;
     }
 }

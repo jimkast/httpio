@@ -14,5 +14,6 @@ public final class BkBasic implements Back {
     @Override
     public void accept(Socket socket) throws IOException {
         exchange.exchange(socket.getInputStream()).print(socket.getOutputStream());
+        socket.getOutputStream().flush();
     }
 }

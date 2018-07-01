@@ -27,15 +27,17 @@ public final class TkApp extends HttpServerMapping.Envelope {
                     ),
                     new TkFixed(new RsText("eee 235 346 rthfdghgf"))
                 ),
-                new FkExactMatch("/eee", new TkFixed(new RsBasic(
-                    out -> {
-                        byte[] bytes = "dfgdf g54tdghf 5y6 54yfcgh\n".getBytes();
-                        for (int i = 0; i < 50; i++) {
-                            out.write(bytes);
+                new FkExactMatch("/eee", new TkFixed(
+                    new RsBasic(
+                        out -> {
+                            byte[] bytes = "dfgdf g54tdghf 5y6 54yfcgh\n".getBytes();
+                            for (int i = 0; i < 50; i++) {
+                                out.write(bytes);
+                            }
+                            return 0;
                         }
-                        return 0;
-                    }
-                ))),
+                    )
+                )),
                 new FkExactMatch("/qqq", in -> {
                     throw new RuntimeException("sdfds gdghf");
                 }),

@@ -10,6 +10,9 @@ public final class HeadWithHeaders implements HttpHead {
     private final HttpHead origin;
     private final Iterable<String> headers;
 
+    public HeadWithHeaders(CharSequence... headers) {
+        this(new RsEmpty(), headers);
+    }
 
     public HeadWithHeaders(HttpHead origin, CharSequence... headers) {
         this(origin, new Mapped<>(CharSequence::toString, Arrays.asList(headers)));
