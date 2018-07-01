@@ -1,23 +1,26 @@
 package org.jimkast.http.rs;
 
-import java.io.IOException;
-import java.io.UncheckedIOException;
-import org.jimkast.number.Int;
-import org.takes.Response;
 
-public final class RsStatus extends Int {
-    private final Response rs;
+import org.jimkast.http.HttpOut;
+import org.jimkast.number.IntParsed;
+import org.jimkast.number.NumberEnvelope;
+import org.jimkast.text.LazyText;
+import org.jimkast.text.SubstringAfter;
+import org.jimkast.text.SubstringBefore;
 
-    public RsStatus(Response rs) {
-        this.rs = rs;
+public final class RsStatus extends NumberEnvelope {
+    public RsStatus(HttpOut rs) {
+        super(
+            new IntParsed(
+                new SubstringBefore(
+                    new SubstringAfter(
+                        new LazyText(rs::line),
+                        " "
+                    ),
+                    " "
+                )
+            )
+        );
     }
 
-    @Override
-    public int intValue() {
-        try {
-            return Integer.parseInt(rs.head().iterator().next().split("\\s+", 3)[1]);
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-    }
 }

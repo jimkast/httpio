@@ -17,9 +17,9 @@ public final class RsText extends HttpOut.Envelope {
 
     public RsText(Input text, HttpHead origin) {
         super(
-            new RsBasic(
-                new HeadWithContentType("text/plain", origin),
-                text
+            new RsWithUnknownBodyLength(
+                text,
+                new HeadWithContentType("text/plain", origin)
             )
         );
     }

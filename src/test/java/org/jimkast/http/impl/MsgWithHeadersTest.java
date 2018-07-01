@@ -1,6 +1,6 @@
 package org.jimkast.http.impl;
 
-import java.nio.file.Paths;
+import java.io.File;
 import org.cactoos.io.InputOf;
 import org.cactoos.io.LengthOf;
 import org.cactoos.io.OutputTo;
@@ -14,11 +14,11 @@ public class MsgWithHeadersTest {
     public void line() throws Exception {
         new LengthOf(
             new TeeInput(
-                new InputOf(Paths.get("/data/images/news/aaaa.html")),
+                new InputOf(new File("C:\\Users\\jimkast\\Desktop\\booking-sample.xml")),
                 new OutputTo(
                     new ChunkedOutputStream(
                         System.out,
-                        256
+                        512
                     )
                 )
             )
