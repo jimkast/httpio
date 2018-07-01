@@ -7,6 +7,7 @@ import java.util.List;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.HeaderValues;
 import org.jimkast.http.HttpIn;
+import org.jimkast.io.InputStreamNoClose;
 
 public final class RqUndertow implements HttpIn {
     private final HttpServerExchange exchange;
@@ -40,6 +41,6 @@ public final class RqUndertow implements HttpIn {
 
     @Override
     public InputStream stream() throws IOException {
-        return exchange.getInputStream();
+        return new InputStreamNoClose(exchange.getInputStream());
     }
 }

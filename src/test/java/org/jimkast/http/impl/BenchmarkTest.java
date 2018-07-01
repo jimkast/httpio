@@ -19,7 +19,7 @@ public final class BenchmarkTest {
         };
 
         List<Callable<String>> list = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10000; i++) {
             list.add(c);
         }
         ExecutorService svc = Executors.newFixedThreadPool(20);
