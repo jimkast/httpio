@@ -8,6 +8,10 @@ import org.takes.http.Back;
 public final class BkRetry implements Back {
     private final Back origin;
 
+    public BkRetry(int timeout, Back origin) {
+        this(new BkWithTimeout(timeout, origin));
+    }
+
     public BkRetry(Back origin) {
         this.origin = origin;
     }
