@@ -37,6 +37,9 @@ public final class RqServlet implements HttpIn {
                 headers.add(name + ": " + headerValues.nextElement());
             }
         }
+        headers.add("X-Takes-LocalAddress: " + req.getLocalAddr());
+        headers.add("X-Takes-LocalPort: " + req.getLocalPort());
+        headers.add("X-Takes-RemoteAddress: " + req.getRemoteAddr());
         return headers;
     }
 
