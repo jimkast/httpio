@@ -5,10 +5,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public final class SocketChannel implements Connection {
+public final class ConnSocket implements Connection {
     private final Socket socket;
 
-    public SocketChannel(Socket socket) {
+    public ConnSocket(Socket socket) {
         this.socket = socket;
     }
 
