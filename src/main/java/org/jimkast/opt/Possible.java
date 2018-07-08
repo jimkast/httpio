@@ -7,7 +7,8 @@ import org.cactoos.Scalar;
 public interface Possible<T> extends Scalar<T> {
     boolean exists();
 
-    T value();
+    @Override
+    T value() throws Exception;
 
 
     class Envelope<T> implements Possible<T> {
@@ -23,7 +24,7 @@ public interface Possible<T> extends Scalar<T> {
         }
 
         @Override
-        public final T value() {
+        public final T value() throws Exception {
             return origin.value();
         }
     }
