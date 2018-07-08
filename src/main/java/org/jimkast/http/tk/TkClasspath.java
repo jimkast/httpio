@@ -4,7 +4,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import org.cactoos.scalar.StickyScalar;
 import org.cactoos.scalar.UncheckedScalar;
-import org.jimkast.bytes.InputAsByteSource;
+import org.jimkast.io.bs.InputAsByteSource;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;

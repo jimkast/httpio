@@ -1,9 +1,9 @@
 package org.jimkast;
 
 import java.io.IOException;
-import org.jimkast.http.bk.BxHttp;
-import org.jimkast.http.wire.SessionRsRq;
-import org.jimkast.http.wire.sun.FtSun;
+import org.jimkast.net.bk.BxHttp;
+import org.jimkast.net.wire.SessionRsRq;
+import org.jimkast.net.wire.sun.FtSun;
 
 public final class AppNio {
     public static void main(String... args) throws IOException {

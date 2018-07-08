@@ -1,12 +1,12 @@
 package org.jimkast;
 
 import java.io.IOException;
-import org.jimkast.http.bk.BkBasic;
-import org.jimkast.http.bk.BkCloseStreams;
-import org.jimkast.http.bk.BkRetry;
-import org.jimkast.http.bk.BkTcpNoDelay;
-import org.jimkast.http.bk.BxBuffered;
-import org.jimkast.http.bk.BxHttp;
+import org.jimkast.net.bk.BkBasic;
+import org.jimkast.net.bk.BkCloseStreams;
+import org.jimkast.net.bk.BkRetry;
+import org.jimkast.net.bk.BkTcpNoDelay;
+import org.jimkast.io.bs.BsBuffered;
+import org.jimkast.net.bk.BxHttp;
 import org.takes.http.BkParallel;
 import org.takes.http.BkTimeable;
 import org.takes.http.Exit;
@@ -22,7 +22,7 @@ public final class App {
                         new BkCloseStreams(
                             new BkRetry(5000,
                                 new BkBasic(
-                                    new BxBuffered(
+                                    new BsBuffered(
                                         new BxHttp(
                                             new TkApp()
                                         )

@@ -12,8 +12,8 @@ import org.jimkast.http.rs.RsBasic;
 import org.jimkast.http.rs.RsText;
 import org.jimkast.http.tk.TkFiles;
 import org.jimkast.http.tk.TkFixed;
-import org.jimkast.util.bool.And;
-import org.jimkast.util.bool.ChkEqualsIgnoreCase;
+import org.jimkast.bool.And;
+import org.jimkast.bool.ChkEqualsIgnoreCase;
 
 public final class TkApp extends HttpServerMapping.Envelope {
     public TkApp() {

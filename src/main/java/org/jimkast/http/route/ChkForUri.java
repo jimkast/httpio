@@ -1,7 +1,7 @@
 package org.jimkast.http.route;
 
 import java.util.function.Predicate;
-import org.jimkast.util.bool.ChkEqualsIgnoreCase;
+import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.rq.RqUri;
 

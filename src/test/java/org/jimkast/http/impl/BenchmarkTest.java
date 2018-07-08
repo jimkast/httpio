@@ -7,7 +7,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.cactoos.io.InputOf;
-import org.jimkast.bytes.InputAsByteSource;
+import org.jimkast.io.bs.InputAsByteSource;
 import org.junit.Test;
 
 public final class BenchmarkTest {

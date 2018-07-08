@@ -2,7 +2,7 @@ package org.jimkast.http.tk;
 
 import java.io.File;
 import org.cactoos.io.InputOf;
-import org.jimkast.bytes.InputAsByteSource;
+import org.jimkast.io.bs.InputAsByteSource;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;

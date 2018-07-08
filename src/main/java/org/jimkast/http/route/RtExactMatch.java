@@ -2,7 +2,7 @@ package org.jimkast.http.route;
 
 import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
-import org.jimkast.util.bool.ChkEqualsIgnoreCase;
+import org.jimkast.bool.ChkEqualsIgnoreCase;
 
 public final class RtExactMatch extends HttpRoute.Envelope {
 

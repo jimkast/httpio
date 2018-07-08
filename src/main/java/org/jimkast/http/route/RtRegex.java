@@ -1,7 +1,7 @@
 package org.jimkast.http.route;
 
 import java.util.regex.Pattern;
-import org.jimkast.util.bool.ChkRegex;
+import org.jimkast.bool.ChkRegex;
 import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
 

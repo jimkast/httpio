@@ -4,7 +4,7 @@ import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
 import org.jimkast.text.TextEnvelope;
-import org.jimkast.util.Mapping;
+import org.jimkast.map.Mapping;
 
 public final class HttpStatusLine extends TextEnvelope {
     public HttpStatusLine(Number code) {

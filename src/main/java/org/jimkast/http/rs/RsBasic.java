@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.util.Collections;
 import org.cactoos.Input;
 import org.jimkast.io.BytesSource;
-import org.jimkast.bytes.InputAsByteSource;
+import org.jimkast.io.bs.InputAsByteSource;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpOut;
