@@ -3,7 +3,7 @@ package org.jimkast.http.bk;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.jimkast.bytes.BytesSource;
+import org.jimkast.io.BytesSource;
 
 public final class BxBuffered implements BytesExchange {
     private final Number size;

@@ -1,7 +1,6 @@
 package org.jimkast.io;
 
 import java.io.FilterInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 
 public final class InputStreamNoClose extends FilterInputStream {
@@ -10,7 +9,6 @@ public final class InputStreamNoClose extends FilterInputStream {
     }
 
     @Override
-    public void close() throws IOException {
-
+    public void close() {
     }
 }

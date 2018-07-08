@@ -1,6 +1,6 @@
 package org.jimkast.number;
 
-public final class DoubleParsed extends Double {
+public final class DoubleParsed extends DoubleEnvelope {
     private final CharSequence text;
 
     public DoubleParsed(CharSequence text) {

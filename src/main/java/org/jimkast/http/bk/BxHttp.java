@@ -5,7 +5,7 @@ import java.io.InputStream;
 import org.cactoos.io.InputOf;
 import org.cactoos.iterable.Skipped;
 import org.cactoos.list.Mapped;
-import org.jimkast.bytes.BytesSource;
+import org.jimkast.io.BytesSource;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.rq.RqBasic;

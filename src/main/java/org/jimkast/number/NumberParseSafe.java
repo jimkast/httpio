@@ -1,10 +1,10 @@
 package org.jimkast.number;
 
-public final class IntParsedSafe extends Number {
+public final class NumberParseSafe extends Number {
     private final Number fallback;
     private final Number origin;
 
-    public IntParsedSafe(Number fallback, Number origin) {
+    public NumberParseSafe(Number fallback, Number origin) {
         this.fallback = fallback;
         this.origin = origin;
     }

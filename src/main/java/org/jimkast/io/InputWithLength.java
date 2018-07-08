@@ -4,8 +4,27 @@ import java.io.InputStream;
 import org.cactoos.Input;
 
 public interface InputWithLength extends Input {
-    long size();
+    long size() throws Exception;
 
     @Override
     InputStream stream() throws Exception;
+
+
+    class Envelope implements InputWithLength {
+        private final InputWithLength origin;
+
+        public Envelope(InputWithLength origin) {
+            this.origin = origin;
+        }
+
+        @Override
+        public final long size() throws Exception {
+            return origin.size();
+        }
+
+        @Override
+        public final InputStream stream() throws Exception {
+            return origin.stream();
+        }
+    }
 }

@@ -1,7 +1,6 @@
 package org.jimkast.io;
 
 import java.io.FilterOutputStream;
-import java.io.IOException;
 import java.io.OutputStream;
 
 public final class OutputStreamNoClose extends FilterOutputStream {
@@ -10,12 +9,10 @@ public final class OutputStreamNoClose extends FilterOutputStream {
     }
 
     @Override
-    public void close() throws IOException {
-
+    public void close() {
     }
 
     @Override
-    public void flush() throws IOException {
-
+    public void flush() {
     }
 }

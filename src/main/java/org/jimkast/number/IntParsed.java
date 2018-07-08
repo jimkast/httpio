@@ -1,6 +1,6 @@
 package org.jimkast.number;
 
-public final class IntParsed extends Int {
+public final class IntParsed extends IntEnvelope {
     private final CharSequence text;
 
     public IntParsed(CharSequence text) {

@@ -1,6 +1,6 @@
 package org.jimkast.number;
 
-public abstract class NumLong extends Number {
+public abstract class LongEnvelope extends Number {
     @Override
     public int intValue() {
         return (int) longValue();

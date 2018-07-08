@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collections;
 import org.cactoos.Input;
-import org.jimkast.bytes.BytesSource;
+import org.jimkast.io.BytesSource;
 import org.jimkast.bytes.InputAsByteSource;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;

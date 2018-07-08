@@ -1,6 +1,6 @@
 package org.jimkast.number;
 
-public final class LongParsed extends NumLong {
+public final class LongParsed extends LongEnvelope {
     private final CharSequence text;
 
     public LongParsed(CharSequence text) {

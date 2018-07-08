@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
-import org.jimkast.bytes.BytesSource;
+import org.jimkast.io.BytesSource;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
 

@@ -1,4 +1,4 @@
-package org.jimkast.bytes;
+package org.jimkast.io;
 
 import java.io.IOException;
 import java.io.OutputStream;

@@ -6,6 +6,7 @@ import org.cactoos.Input;
 import org.cactoos.io.LengthOf;
 import org.cactoos.io.OutputTo;
 import org.cactoos.io.TeeInput;
+import org.jimkast.io.BytesSource;
 
 public final class InputAsByteSource implements BytesSource {
     private final Input input;

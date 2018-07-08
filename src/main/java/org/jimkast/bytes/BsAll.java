@@ -3,6 +3,7 @@ package org.jimkast.bytes;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Arrays;
+import org.jimkast.io.BytesSource;
 
 public final class BsAll implements BytesSource {
     private final Iterable<BytesSource> all;

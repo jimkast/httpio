@@ -19,7 +19,7 @@ public final class TkApp extends HttpServerMapping.Envelope {
     public TkApp() {
         super(
             new TkRoute(
-                new TkFixed(new RsText("Hello world!")),
+                new TkFixed(new RsText("404 not found...")),
                 new RtSimple(
                     new And<>(
                         new ChkForUri(new ChkEqualsIgnoreCase("/ccc")),
