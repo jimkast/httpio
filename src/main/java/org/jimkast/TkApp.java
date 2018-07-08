@@ -4,7 +4,7 @@ import java.nio.file.Paths;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.route.ChkForUri;
 import org.jimkast.http.route.ChkMethod;
-import org.jimkast.http.route.FkExactMatch;
+import org.jimkast.http.route.RtExactMatch;
 import org.jimkast.http.route.RtRegex;
 import org.jimkast.http.route.RtSimple;
 import org.jimkast.http.route.TkRoute;
@@ -27,7 +27,7 @@ public final class TkApp extends HttpServerMapping.Envelope {
                     ),
                     new TkFixed(new RsText("eee 235 346 rthfdghgf"))
                 ),
-                new FkExactMatch("/eee", new TkFixed(
+                new RtExactMatch("/eee", new TkFixed(
                     new RsBasic(
                         out -> {
                             byte[] bytes = "dfgdf g54tdghf 5y6 54yfcgh\n".getBytes();
@@ -38,10 +38,10 @@ public final class TkApp extends HttpServerMapping.Envelope {
                         }
                     )
                 )),
-                new FkExactMatch("/qqq", in -> {
+                new RtExactMatch("/qqq", in -> {
                     throw new RuntimeException("sdfds gdghf");
                 }),
-                new FkExactMatch("/aaa", new TkFixed(new RsText("aaaaaaaaaaaaaaaaaaaaa"))),
+                new RtExactMatch("/aaa", new TkFixed(new RsText("aaaaaaaaaaaaaaaaaaaaa"))),
                 new RtRegex("/bbb", new TkFixed(new RsText("fgchcf 56y5"))),
                 new RtRegex("/news/.*", new TkFiles(Paths.get("/data/images").toFile(), new RsText("File not found.")))
             )

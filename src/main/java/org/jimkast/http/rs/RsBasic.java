@@ -6,6 +6,7 @@ import java.util.Collections;
 import org.cactoos.Input;
 import org.jimkast.bytes.BytesSource;
 import org.jimkast.bytes.InputAsByteSource;
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.head.HttpHeadBasic;
@@ -35,15 +36,15 @@ public final class RsBasic implements HttpOut {
         this(line, Collections.emptyList(), body);
     }
 
-    public RsBasic(Number code, Iterable<String> headers) {
+    public RsBasic(Number code, Iterable<Header> headers) {
         this(new HttpStatusLine(code), headers, BytesSource.EMPTY);
     }
 
-    public RsBasic(Number code, Iterable<String> headers, BytesSource body) {
+    public RsBasic(Number code, Iterable<Header> headers, BytesSource body) {
         this(new HttpStatusLine(code), headers, body);
     }
 
-    public RsBasic(CharSequence line, Iterable<String> headers, BytesSource body) {
+    public RsBasic(CharSequence line, Iterable<Header> headers, BytesSource body) {
         this(new HttpHeadBasic(line, headers), body);
     }
 
@@ -74,7 +75,7 @@ public final class RsBasic implements HttpOut {
     }
 
     @Override
-    public Iterable<String> headers() {
+    public Iterable<Header> headers() {
         return head.headers();
     }
 

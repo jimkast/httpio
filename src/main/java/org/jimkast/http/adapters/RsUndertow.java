@@ -3,6 +3,7 @@ package org.jimkast.http.adapters;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.HttpString;
 import org.cactoos.Func;
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.rs.RsStatus;
 import org.jimkast.io.OutputStreamNoClose;
@@ -17,9 +18,8 @@ public final class RsUndertow implements Func<HttpServerExchange, HttpServerExch
     @Override
     public HttpServerExchange apply(HttpServerExchange exchange) throws Exception {
         exchange.setStatusCode(new RsStatus(res).intValue());
-        for (String s : res.headers()) {
-            String[] parts = s.split(":", 2);
-            exchange.getResponseHeaders().add(HttpString.tryFromString(parts[0].trim()), parts[1].trim());
+        for (Header h : res.headers()) {
+            exchange.getResponseHeaders().add(HttpString.tryFromString(h.name()), h.value());
         }
         res.print(new OutputStreamNoClose(exchange.getOutputStream()));
         return exchange;

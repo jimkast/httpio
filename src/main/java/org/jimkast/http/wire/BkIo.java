@@ -16,11 +16,11 @@ public final class BkIo implements Back {
     }
 
     @Override
-    public void trigger(Session session) throws IOException {
+    public void feed(Session session) throws IOException {
         try {
             while (true) {
                 try (Socket s = socket.accept()) {
-                    session.consume(new ConnSocket(s));
+                    session.accept(new ConnSocket(s));
                 }
             }
         } finally {

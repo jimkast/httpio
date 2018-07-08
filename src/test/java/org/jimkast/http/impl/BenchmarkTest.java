@@ -6,20 +6,22 @@ import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import org.cactoos.text.TextOf;
+import org.cactoos.io.InputOf;
+import org.jimkast.bytes.InputAsByteSource;
 import org.junit.Test;
 
 public final class BenchmarkTest {
     @Test
     public void jetty() throws Exception {
         Callable<String> c = () -> {
-            String res = new TextOf(new URL("http://localhost:9999/ccc")).asString();
-            System.out.println(res);
-            return res;
+            new InputAsByteSource(new InputOf(new URL("http://localhost:9999/ccc"))).print(System.out);
+            System.out.println("");
+            return "123";
         };
+        c.call();
 
         List<Callable<String>> list = new ArrayList<>();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100; i++) {
             list.add(c);
         }
         ExecutorService svc = Executors.newFixedThreadPool(20);

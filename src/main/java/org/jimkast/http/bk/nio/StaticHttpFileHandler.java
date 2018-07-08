@@ -67,12 +67,13 @@ public class StaticHttpFileHandler extends HttpHandler {
         } else {
             return new Result("404 File not found") {
                 @Override
-                protected void writeBody(OutputStream os) {
-                    // No body for 404
+                protected void writeBody(OutputStream os) throws IOException {
+                    os.write("File not found...".getBytes());
+                    os.flush();
                 }
                 @Override
                 protected void addHeaders() {
-                    addResponseHeader("Content-Length", "0");
+                    addResponseHeader("Content-Length", "16");
                 }
             };
         }

@@ -10,9 +10,9 @@ public final class SessionReuseConn implements Session {
     }
 
     @Override
-    public void consume(Connection channel) throws IOException {
+    public void accept(Connection channel) throws IOException {
         while (true) {
-            origin.consume(channel);
+            origin.accept(channel);
         }
     }
 }

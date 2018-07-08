@@ -10,11 +10,11 @@ import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 
-public final class BkNio implements Back {
+public final class BkNio2 implements Back {
     private final Selector selector;
     private final ServerSocketChannel socket;
 
-    public BkNio(int port) throws IOException {
+    public BkNio2(int port) throws IOException {
         Selector selector = Selector.open();
         ServerSocketChannel socket = ServerSocketChannel.open();
         socket.bind(new InetSocketAddress(port));
@@ -24,7 +24,7 @@ public final class BkNio implements Back {
         this.socket = socket;
     }
 
-    public BkNio(Selector selector, ServerSocketChannel socket) {
+    public BkNio2(Selector selector, ServerSocketChannel socket) {
         this.selector = selector;
         this.socket = socket;
     }

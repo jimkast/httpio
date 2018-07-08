@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.util.Collections;
 import org.cactoos.Input;
 import org.cactoos.io.InputOf;
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.head.HttpHeadBasic;
@@ -21,7 +22,7 @@ public final class RqBasic implements HttpIn {
         this(line, Collections.emptyList(), body);
     }
 
-    public RqBasic(CharSequence line, Iterable<String> headers, Input body) {
+    public RqBasic(CharSequence line, Iterable<Header> headers, Input body) {
         this(new HttpHeadBasic(line, headers), body);
     }
 
@@ -36,7 +37,7 @@ public final class RqBasic implements HttpIn {
     }
 
     @Override
-    public Iterable<String> headers() {
+    public Iterable<Header> headers() {
         return head.headers();
     }
 

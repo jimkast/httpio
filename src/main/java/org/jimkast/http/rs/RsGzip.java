@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.zip.GZIPOutputStream;
 import org.cactoos.iterable.Joined;
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpOut;
 
 public final class RsGzip implements HttpOut {
@@ -19,8 +20,8 @@ public final class RsGzip implements HttpOut {
     }
 
     @Override
-    public Iterable<String> headers() {
-        return new Joined<>("Content-Encoding: gzip", out.headers());
+    public Iterable<Header> headers() {
+        return new Joined<>(new Header.Simple("Content-Encoding", "gzip"), out.headers());
     }
 
     @Override

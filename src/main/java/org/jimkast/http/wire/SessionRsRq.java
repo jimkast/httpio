@@ -11,7 +11,7 @@ public final class SessionRsRq implements Session {
     }
 
     @Override
-    public void consume(Connection channel) throws IOException {
-        exchange.exchange(channel.input()).print(channel.output());
+    public void accept(Connection channel) throws IOException {
+        exchange.exchange(channel.in()).print(channel.out());
     }
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import com.sun.net.httpserver.HttpExchange;
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
 
 public final class RqSun implements HttpIn {
@@ -26,12 +27,12 @@ public final class RqSun implements HttpIn {
     }
 
     @Override
-    public Iterable<String> headers() {
-        List<String> result = new ArrayList<>();
+    public Iterable<Header> headers() {
+        List<Header> result = new ArrayList<>();
         Map<String, List<String>> headers = exchange.getRequestHeaders();
         for (String name : exchange.getRequestHeaders().keySet()) {
             for (String value : headers.get(name)) {
-                result.add(name + ": " + value);
+                result.add(new Header.Simple(name, value));
             }
         }
         return result;

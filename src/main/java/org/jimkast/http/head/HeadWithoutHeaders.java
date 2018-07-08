@@ -5,28 +5,28 @@ import java.util.Collection;
 import java.util.function.Predicate;
 import org.cactoos.collection.CollectionOf;
 import org.cactoos.iterable.Filtered;
-import org.jimkast.text.SubstringBefore;
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
 
 public final class HeadWithoutHeaders implements HttpHead {
     private final HttpHead origin;
-    private final Predicate<String> headers;
+    private final Predicate<String> check;
 
-    public HeadWithoutHeaders(HttpHead origin, String... headers) {
-        this(origin, Arrays.asList(headers));
+    public HeadWithoutHeaders(HttpHead origin, String... check) {
+        this(origin, Arrays.asList(check));
     }
 
-    public HeadWithoutHeaders(HttpHead origin, Iterable<String> headers) {
-        this(origin, new CollectionOf<>(headers));
+    public HeadWithoutHeaders(HttpHead origin, Iterable<String> check) {
+        this(origin, new CollectionOf<>(check));
     }
 
-    public HeadWithoutHeaders(HttpHead origin, Collection<String> headers) {
-        this(origin, headers::contains);
+    public HeadWithoutHeaders(HttpHead origin, Collection<String> check) {
+        this(origin, check::contains);
     }
 
-    public HeadWithoutHeaders(HttpHead origin, Predicate<String> headers) {
+    public HeadWithoutHeaders(HttpHead origin, Predicate<String> check) {
         this.origin = origin;
-        this.headers = headers;
+        this.check = check;
     }
 
     @Override
@@ -35,9 +35,9 @@ public final class HeadWithoutHeaders implements HttpHead {
     }
 
     @Override
-    public Iterable<String> headers() {
+    public Iterable<Header> headers() {
         return new Filtered<>(
-            input -> !headers.test(new SubstringBefore(input, ":").toString().trim()),
+            h -> !check.test(h.name()),
             origin.headers()
         );
     }

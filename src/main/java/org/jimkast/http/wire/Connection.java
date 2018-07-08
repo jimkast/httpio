@@ -6,9 +6,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public interface Connection extends Closeable {
-    InputStream input() throws IOException;
+    InputStream in() throws IOException;
 
-    OutputStream output() throws IOException;
+    OutputStream out() throws IOException;
 
     @Override
     void close() throws IOException;

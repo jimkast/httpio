@@ -1,5 +1,6 @@
 package org.jimkast.http.rs;
 
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.head.HeadWithHeaders;
 
@@ -13,10 +14,10 @@ public final class RsWithHeaders extends HttpOut.Envelope {
     }
 
     public RsWithHeaders(Iterable<String> headers) {
-        this(new RsEmpty(), headers);
+        super(new RsBasic(new HeadWithHeaders(headers)));
     }
 
-    public RsWithHeaders(HttpOut origin, Iterable<String> headers) {
+    public RsWithHeaders(HttpOut origin, Iterable<Header> headers) {
         super(new RsBasic(new HeadWithHeaders(origin, headers), origin));
     }
 }

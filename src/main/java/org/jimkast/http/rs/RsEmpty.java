@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collections;
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 
@@ -15,7 +16,7 @@ public final class RsEmpty implements HttpIn, HttpOut {
     }
 
     @Override
-    public Iterable<String> headers() {
+    public Iterable<Header> headers() {
         return Collections.emptyList();
     }
 

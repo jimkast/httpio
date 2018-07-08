@@ -10,7 +10,7 @@ public class BkIoTest {
     @Test
     public void trigger() throws IOException {
         new BkNio(8081)
-            .trigger(
+            .feed(
                 new SessionRsRq(
                     new BxHttp(
                         new TkApp()

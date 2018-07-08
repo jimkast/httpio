@@ -3,27 +3,27 @@ package org.jimkast.http.wire;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.Socket;
+import java.nio.channels.SocketChannel;
 
-public final class ConnSocket implements Connection {
-    private final Socket socket;
+public final class ConnBlockingNio implements Connection {
+    private final SocketChannel ch;
 
-    public ConnSocket(Socket socket) {
-        this.socket = socket;
+    public ConnBlockingNio(SocketChannel ch) {
+        this.ch = ch;
     }
 
     @Override
     public InputStream in() throws IOException {
-        return socket.getInputStream();
+        return ch.socket().getInputStream();
     }
 
     @Override
     public OutputStream out() throws IOException {
-        return socket.getOutputStream();
+        return ch.socket().getOutputStream();
     }
 
     @Override
     public void close() throws IOException {
-        socket.close();
+        ch.close();
     }
 }

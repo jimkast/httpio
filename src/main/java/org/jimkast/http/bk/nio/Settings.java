@@ -26,7 +26,7 @@ public abstract class Settings {
     // a list which is monitored for new data. When new data arrives the requests are scheduled again
     // for processing. (not implemented here)
     public final static ExecutorService createExecutor() {
-        return Executors.newFixedThreadPool(2);
+        return Executors.newFixedThreadPool(4);
     }
 
     /**

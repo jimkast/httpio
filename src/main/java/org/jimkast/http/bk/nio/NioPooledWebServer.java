@@ -1,7 +1,6 @@
 package org.jimkast.http.bk.nio;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.channels.SelectionKey;
@@ -13,12 +12,11 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class NioPooledWebServer {
-    private final ExecutorService executor = Executors.newFixedThreadPool(8);
-    private final ExecutorCompletionService<SocketChannel> keepAliveChannels = new ExecutorCompletionService<>(executor);
+    private final ExecutorService executor = Settings.createExecutor();
+    private final ExecutorCompletionService<SocketChannel> keepAliveChannels = new ExecutorCompletionService<SocketChannel>(executor);
 
     /**
      * Check the pool for completion of one or more of its task and in case it's keep-alive
@@ -50,7 +48,7 @@ public class NioPooledWebServer {
             System.err.println("Cleaning up keep-alive connections. " + keys.size());
             for (SelectionKey key : keys)
                 if ((key.interestOps() & SelectionKey.OP_READ) != 0 &&
-                    ((long) key.attachment()) + 30000L < now) {
+                    ((Long) key.attachment()) + Settings.keepAliveTimeout < now) {
                     System.out.println("Closing connection to " + key.channel());
                     key.channel().close();
                 }
@@ -64,7 +62,7 @@ public class NioPooledWebServer {
         serverChannel.configureBlocking(false);
 
         ServerSocket theServer = serverChannel.socket();
-        theServer.bind(new InetSocketAddress(8020));
+        theServer.bind(Settings.endpoint);
 
         final Selector selector = Selector.open();
         serverChannel.register(selector, SelectionKey.OP_ACCEPT);
@@ -94,13 +92,12 @@ public class NioPooledWebServer {
                     // and let the processing be done inside of an own thread
                     key.cancel();
                     clientChannel.configureBlocking(true);
-//                    Logging.log("Reusing channel %s", clientChannel);
                     schedule(clientChannel);
                 }
             }
 
             selector.selectNow();
-            serverChannel.register(selector, SelectionKey.OP_ACCEPT);
+//            serverChannel.register(selector, SelectionKey.OP_ACCEPT);
         }
     }
 
@@ -127,9 +124,6 @@ public class NioPooledWebServer {
             }
         });
     }
-
-
-
 
     public static void main(String[] args) throws Exception {
         new NioPooledWebServer().run();

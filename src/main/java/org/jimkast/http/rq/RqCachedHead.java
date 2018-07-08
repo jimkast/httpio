@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.cactoos.iterable.StickyIterable;
 import org.cactoos.scalar.StickyScalar;
+import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
 import org.jimkast.text.LazyText;
 
 public final class RqCachedHead implements HttpIn {
     private final CharSequence line;
-    private final Iterable<String> headers;
+    private final Iterable<Header> headers;
     private final HttpIn body;
 
     public RqCachedHead(HttpIn origin) {
@@ -20,7 +21,7 @@ public final class RqCachedHead implements HttpIn {
         );
     }
 
-    public RqCachedHead(CharSequence line, Iterable<String> headers, HttpIn body) {
+    public RqCachedHead(CharSequence line, Iterable<Header> headers, HttpIn body) {
         this.line = line;
         this.headers = headers;
         this.body = body;
@@ -32,7 +33,7 @@ public final class RqCachedHead implements HttpIn {
     }
 
     @Override
-    public Iterable<String> headers() {
+    public Iterable<Header> headers() {
         return headers;
     }
 

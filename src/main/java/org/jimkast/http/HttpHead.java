@@ -3,7 +3,7 @@ package org.jimkast.http;
 public interface HttpHead {
     String line();
 
-    Iterable<String> headers();
+    Iterable<Header> headers();
 
 
     class Envelope implements HttpHead {
@@ -19,7 +19,7 @@ public interface HttpHead {
         }
 
         @Override
-        public final Iterable<String> headers() {
+        public final Iterable<Header> headers() {
             return origin.headers();
         }
     }
