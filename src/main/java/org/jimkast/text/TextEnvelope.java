@@ -5,22 +5,18 @@ import org.cactoos.Scalar;
 import org.cactoos.Text;
 import org.cactoos.scalar.UncheckedScalar;
 
-public class LazyText implements CharSequence, Text {
+public class TextEnvelope implements CharSequence, Text {
     private final UncheckedScalar<String> str;
 
-    public LazyText(CharSequence str) {
+    public TextEnvelope(CharSequence str) {
         this(str::toString);
     }
 
-    public LazyText(LazyText text) {
-        this(text::toString);
-    }
-
-    public LazyText(Scalar<String> str) {
+    public TextEnvelope(Scalar<String> str) {
         this(new UncheckedScalar<>(str));
     }
 
-    public LazyText(UncheckedScalar<String> str) {
+    public TextEnvelope(UncheckedScalar<String> str) {
         this.str = str;
     }
 

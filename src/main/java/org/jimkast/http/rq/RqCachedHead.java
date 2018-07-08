@@ -6,7 +6,7 @@ import org.cactoos.iterable.StickyIterable;
 import org.cactoos.scalar.StickyScalar;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
-import org.jimkast.text.LazyText;
+import org.jimkast.text.TextEnvelope;
 
 public final class RqCachedHead implements HttpIn {
     private final CharSequence line;
@@ -15,7 +15,7 @@ public final class RqCachedHead implements HttpIn {
 
     public RqCachedHead(HttpIn origin) {
         this(
-            new LazyText(new StickyScalar<>(origin::line)),
+            new TextEnvelope(new StickyScalar<>(origin::line)),
             new StickyIterable<>(() -> origin.headers().iterator()),
             origin
         );

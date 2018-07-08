@@ -13,7 +13,7 @@ import org.jimkast.http.rq.RqUri;
 import org.jimkast.http.rs.RsBasic;
 import org.jimkast.http.rs.RsWithHeaders;
 import org.jimkast.text.Concat;
-import org.jimkast.text.LazyText;
+import org.jimkast.text.TextEnvelope;
 
 public final class TkClasspath implements HttpServerMapping {
     private final HttpServerMapping notFound;
@@ -39,7 +39,7 @@ public final class TkClasspath implements HttpServerMapping {
         } else {
             UncheckedScalar<URLConnection> conn = new UncheckedScalar<>(new StickyScalar<>(url::openConnection));
             res = new RsBasic(
-                new RsWithHeaders(new Concat("Content-Length: ", new LazyText(() -> String.valueOf(conn.value().getContentLength())))),
+                new RsWithHeaders(new Concat("Content-Length: ", new TextEnvelope(() -> String.valueOf(conn.value().getContentLength())))),
                 new InputAsByteSource(() -> conn.value().getInputStream())
             );
         }

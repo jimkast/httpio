@@ -1,6 +1,6 @@
 package org.jimkast.text;
 
-public final class SubstringAfter extends LazyText {
+public final class SubstringAfter extends TextEnvelope {
     public SubstringAfter(CharSequence origin, CharSequence after) {
         this(origin, after, "");
     }

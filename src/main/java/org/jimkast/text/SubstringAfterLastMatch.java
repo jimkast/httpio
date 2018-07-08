@@ -1,6 +1,6 @@
 package org.jimkast.text;
 
-public final class SubstringAfterLastMatch extends LazyText {
+public final class SubstringAfterLastMatch extends TextEnvelope {
     public SubstringAfterLastMatch(CharSequence origin, CharSequence after) {
         this(origin, after, "");
     }

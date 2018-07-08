@@ -8,7 +8,7 @@ import org.jimkast.io.InputResettable;
 import org.jimkast.io.InputWithCachedLength;
 import org.jimkast.io.InputWithLength;
 import org.jimkast.text.Concat;
-import org.jimkast.text.LazyText;
+import org.jimkast.text.TextEnvelope;
 
 public final class RsWithUnknownBodyLength extends HttpOut.Envelope {
     public RsWithUnknownBodyLength(Input input, HttpHead origin) {
@@ -20,7 +20,7 @@ public final class RsWithUnknownBodyLength extends HttpOut.Envelope {
             new RsBasic(
                 new HeadWithHeaders(
                     origin,
-                    new Concat("Content-Length: ", new LazyText(() -> String.valueOf(input.size())))
+                    new Concat("Content-Length: ", new TextEnvelope(() -> String.valueOf(input.size())))
                 ),
                 input
             )

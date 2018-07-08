@@ -3,9 +3,9 @@ package org.jimkast.http.rs;
 
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
-import org.jimkast.text.LazyText;
+import org.jimkast.text.TextEnvelope;
 
-public final class HttpHeaderValue extends LazyText {
+public final class HttpHeaderValue extends TextEnvelope {
     public HttpHeaderValue(HttpHead msg, CharSequence name) {
         this(msg, name, "");
     }

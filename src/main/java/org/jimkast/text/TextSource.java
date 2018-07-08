@@ -1,4 +1,4 @@
-package org.jimkast.bytes;
+package org.jimkast.text;
 
 import java.io.IOException;
 import java.io.Writer;

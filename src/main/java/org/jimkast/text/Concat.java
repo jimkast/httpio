@@ -3,7 +3,7 @@ package org.jimkast.text;
 import java.util.Arrays;
 import org.cactoos.list.Mapped;
 
-public final class Concat extends LazyText {
+public final class Concat extends TextEnvelope {
     public Concat(CharSequence... parts) {
         this(Arrays.asList(parts));
     }

@@ -3,10 +3,10 @@ package org.jimkast.http.head;
 import java.net.HttpURLConnection;
 import java.util.HashMap;
 import java.util.Map;
-import org.jimkast.text.LazyText;
+import org.jimkast.text.TextEnvelope;
 import org.jimkast.util.Mapping;
 
-public final class HttpStatusLine extends LazyText {
+public final class HttpStatusLine extends TextEnvelope {
     public HttpStatusLine(Number code) {
         this(code, new HttpDefaultReason(code));
     }
@@ -16,7 +16,7 @@ public final class HttpStatusLine extends LazyText {
     }
 
 
-    public static final class HttpDefaultReason extends LazyText {
+    public static final class HttpDefaultReason extends TextEnvelope {
         private static final Mapping<Integer, String> MAPPING = make();
 
         public HttpDefaultReason(Number code) {
