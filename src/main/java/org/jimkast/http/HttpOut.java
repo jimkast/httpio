@@ -6,7 +6,7 @@ import org.jimkast.io.BytesSource;
 
 public interface HttpOut extends HttpHead, BytesSource {
     @Override
-    String line();
+    Iterable<String> line();
 
     @Override
     Iterable<Header> headers();
@@ -23,7 +23,7 @@ public interface HttpOut extends HttpHead, BytesSource {
         }
 
         @Override
-        public final String line() {
+        public final Iterable<String> line() {
             return origin.line();
         }
 

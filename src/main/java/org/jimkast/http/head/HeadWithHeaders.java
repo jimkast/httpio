@@ -33,7 +33,7 @@ public final class HeadWithHeaders implements HttpHead {
     }
 
     @Override
-    public String line() {
+    public Iterable<String> line() {
         return origin.line();
     }
 

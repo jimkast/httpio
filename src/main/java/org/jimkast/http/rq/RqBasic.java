@@ -14,15 +14,15 @@ public final class RqBasic implements HttpIn {
     private final HttpHead head;
     private final Input body;
 
-    public RqBasic(CharSequence line) {
+    public RqBasic(Iterable<String> line) {
         this(line, new InputOf(new byte[0]));
     }
 
-    public RqBasic(CharSequence line, Input body) {
+    public RqBasic(Iterable<String> line, Input body) {
         this(line, Collections.emptyList(), body);
     }
 
-    public RqBasic(CharSequence line, Iterable<Header> headers, Input body) {
+    public RqBasic(Iterable<String> line, Iterable<Header> headers, Input body) {
         this(new HttpHeadBasic(line, headers), body);
     }
 
@@ -32,7 +32,7 @@ public final class RqBasic implements HttpIn {
     }
 
     @Override
-    public String line() {
+    public Iterable<String> line() {
         return head.line();
     }
 

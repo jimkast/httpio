@@ -16,7 +16,7 @@ public final class RsChunked implements HttpOut {
     }
 
     @Override
-    public String line() {
+    public Iterable<String> line() {
         return out.line();
     }
 

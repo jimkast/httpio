@@ -1,23 +1,22 @@
 package org.jimkast.http.rs;
 
 
-import org.jimkast.http.HttpOut;
+import org.cactoos.scalar.ItemAt;
+import org.jimkast.http.HttpHead;
+import org.jimkast.http.head.HeadLineParts;
 import org.jimkast.number.IntParsed;
 import org.jimkast.number.NumberEnvelope;
 import org.jimkast.text.TextEnvelope;
-import org.jimkast.text.SubstringAfter;
-import org.jimkast.text.SubstringBefore;
 
 public final class RsStatus extends NumberEnvelope {
-    public RsStatus(HttpOut rs) {
+    public RsStatus(HttpHead rs) {
         super(
             new IntParsed(
-                new SubstringBefore(
-                    new SubstringAfter(
-                        new TextEnvelope(rs::line),
-                        " "
-                    ),
-                    " "
+                new TextEnvelope(
+                    new ItemAt<>(
+                        1,
+                        new HeadLineParts(rs)
+                    )
                 )
             )
         );

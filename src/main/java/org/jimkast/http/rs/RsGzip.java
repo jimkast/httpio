@@ -15,7 +15,7 @@ public final class RsGzip implements HttpOut {
     }
 
     @Override
-    public String line() {
+    public Iterable<String> line() {
         return out.line();
     }
 

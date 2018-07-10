@@ -1,7 +1,7 @@
 package org.jimkast.http;
 
 public interface HttpHead {
-    String line();
+    Iterable<String> line();
 
     Iterable<Header> headers();
 
@@ -14,7 +14,7 @@ public interface HttpHead {
         }
 
         @Override
-        public final String line() {
+        public final Iterable<String> line() {
             return origin.line();
         }
 

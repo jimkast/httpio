@@ -1,20 +1,31 @@
 package org.jimkast.http.head;
 
 import java.net.HttpURLConnection;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import org.cactoos.list.Mapped;
+import org.jimkast.iterable.IterableEnvelope;
 import org.jimkast.text.TextEnvelope;
 import org.jimkast.map.Mapping;
 
-public final class HttpStatusLine extends TextEnvelope {
+public final class HttpStatusLine extends IterableEnvelope<String>{
     public HttpStatusLine(Number code) {
         this(code, new HttpDefaultReason(code));
     }
 
     public HttpStatusLine(Number code, CharSequence reason) {
-        super(() -> "HTTP1/1 " + code + " " + reason);
+        this("HTTP1/1 ", new TextEnvelope(code::toString), reason);
     }
 
+
+    public HttpStatusLine(CharSequence... parts) {
+        this(new Mapped<>(CharSequence::toString, Arrays.asList(parts)));
+    }
+
+    public HttpStatusLine(Iterable<String> origin) {
+        super(origin);
+    }
 
     public static final class HttpDefaultReason extends TextEnvelope {
         private static final Mapping<Integer, String> MAPPING = make();

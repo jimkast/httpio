@@ -20,7 +20,7 @@ public final class BsHttpHead implements BytesSource {
     public long print(OutputStream out) throws IOException {
         String eol = "\r\n";
         Writer writer = new OutputStreamWriter(out, StandardCharsets.UTF_8);
-        writer.write(head.line());
+        writer.write(String.join(" ", head.line()));
         writer.write(eol);
         for (Header h : head.headers()) {
             writer.write(h.name() + ":" + h.value());

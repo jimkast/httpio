@@ -2,6 +2,7 @@ package org.jimkast.net.bk;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import org.cactoos.io.InputOf;
 import org.cactoos.iterable.Skipped;
 import org.cactoos.list.Mapped;
@@ -25,7 +26,7 @@ public final class BxHttp implements BytesExchange {
         return new BsHttpOutFull(
             exchange.exchange(
                 new RqBasic(
-                    req.head().iterator().next(),
+                    Arrays.asList(req.head().iterator().next().split(" ")),
                     new Mapped<>(Header.Parsed::new, new Skipped<>(req.head(), 1)),
                     new InputOf(input)
                 )

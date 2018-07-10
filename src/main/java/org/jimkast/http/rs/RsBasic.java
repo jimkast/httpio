@@ -2,6 +2,7 @@ package org.jimkast.http.rs;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.Collections;
 import org.cactoos.Input;
 import org.jimkast.io.BytesSource;
@@ -17,14 +18,14 @@ public final class RsBasic implements HttpOut {
     private final BytesSource body;
 
     public RsBasic() {
-        this("HTTP/1.1 200 OK");
+        this(Arrays.asList("HTTP/1.1", "200", "OK"));
     }
 
     public RsBasic(Number code) {
         this(new HttpStatusLine(code));
     }
 
-    public RsBasic(CharSequence line) {
+    public RsBasic(Iterable<String> line) {
         this(line, BytesSource.EMPTY);
     }
 
@@ -32,7 +33,7 @@ public final class RsBasic implements HttpOut {
         this(new HttpStatusLine(code), body);
     }
 
-    public RsBasic(CharSequence line, BytesSource body) {
+    public RsBasic(Iterable<String> line, BytesSource body) {
         this(line, Collections.emptyList(), body);
     }
 
@@ -44,7 +45,7 @@ public final class RsBasic implements HttpOut {
         this(new HttpStatusLine(code), headers, body);
     }
 
-    public RsBasic(CharSequence line, Iterable<Header> headers, BytesSource body) {
+    public RsBasic(Iterable<String> line, Iterable<Header> headers, BytesSource body) {
         this(new HttpHeadBasic(line, headers), body);
     }
 
@@ -70,7 +71,7 @@ public final class RsBasic implements HttpOut {
     }
 
     @Override
-    public String line() {
+    public Iterable<String> line() {
         return head.line();
     }
 

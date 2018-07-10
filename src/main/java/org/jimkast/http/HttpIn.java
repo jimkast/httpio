@@ -6,7 +6,7 @@ import org.cactoos.Input;
 
 public interface HttpIn extends HttpHead, Input {
     @Override
-    String line();
+    Iterable<String> line();
 
     @Override
     Iterable<Header> headers();
@@ -23,7 +23,7 @@ public interface HttpIn extends HttpHead, Input {
         }
 
         @Override
-        public String line() {
+        public Iterable<String> line() {
             return origin.line();
         }
 

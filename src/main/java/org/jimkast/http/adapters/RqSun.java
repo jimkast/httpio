@@ -3,6 +3,7 @@ package org.jimkast.http.adapters;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import com.sun.net.httpserver.HttpExchange;
@@ -17,9 +18,8 @@ public final class RqSun implements HttpIn {
     }
 
     @Override
-    public String line() {
-        return String.join(
-            " ",
+    public Iterable<String> line() {
+        return Arrays.asList(
             exchange.getRequestMethod(),
             exchange.getRequestURI().toString(),
             exchange.getProtocol()

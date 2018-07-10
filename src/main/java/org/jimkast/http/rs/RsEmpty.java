@@ -4,15 +4,18 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Arrays;
 import java.util.Collections;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 
 public final class RsEmpty implements HttpIn, HttpOut {
+    private static final Iterable<String> LINE = Arrays.asList("HTTP1/1", "200", "OK");
+
     @Override
-    public String line() {
-        return "HTTP/1.1 200 OK";
+    public Iterable<String> line() {
+        return LINE;
     }
 
     @Override

@@ -3,6 +3,7 @@ package org.jimkast.http.adapters;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -17,10 +18,9 @@ public final class RqServlet implements HttpIn {
     }
 
     @Override
-    public String line() {
+    public Iterable<String> line() {
         String q = req.getQueryString();
-        return String.join(
-            " ",
+        return Arrays.asList(
             req.getMethod(),
             req.getRequestURI() + (q == null ? "" : "?" + q),
             req.getProtocol()

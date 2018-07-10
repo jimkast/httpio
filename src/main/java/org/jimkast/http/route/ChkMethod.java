@@ -12,6 +12,6 @@ public final class ChkMethod implements Predicate<HttpHead> {
 
     @Override
     public boolean test(HttpHead head) {
-        return head.line().startsWith(method.toString() + " ");
+        return head.line().iterator().next().equalsIgnoreCase(method.toString());
     }
 }
