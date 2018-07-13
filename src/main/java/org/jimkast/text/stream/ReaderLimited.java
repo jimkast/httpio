@@ -1,4 +1,4 @@
-package org.jimkast.bytes;
+package org.jimkast.text.stream;
 
 import java.io.IOException;
 import java.io.Reader;

@@ -5,7 +5,7 @@ import org.jimkast.net.bk.BkBasic;
 import org.jimkast.net.bk.BkCloseStreams;
 import org.jimkast.net.bk.BkRetry;
 import org.jimkast.net.bk.BkTcpNoDelay;
-import org.jimkast.io.bs.BsBuffered;
+import org.jimkast.net.bk.BxBuffered;
 import org.jimkast.net.bk.BxHttp;
 import org.takes.http.BkParallel;
 import org.takes.http.BkTimeable;
@@ -22,7 +22,7 @@ public final class App {
                         new BkCloseStreams(
                             new BkRetry(5000,
                                 new BkBasic(
-                                    new BsBuffered(
+                                    new BxBuffered(
                                         new BxHttp(
                                             new TkApp()
                                         )

@@ -8,15 +8,15 @@ import org.cactoos.io.OutputTo;
 import org.cactoos.io.TeeInput;
 import org.jimkast.io.BytesSource;
 
-public final class InputAsByteSource implements BytesSource {
+public final class BsInput implements BytesSource {
     private final Input input;
     private final int size;
 
-    public InputAsByteSource(Input input) {
+    public BsInput(Input input) {
         this(input, 4096);
     }
 
-    public InputAsByteSource(Input input, int size) {
+    public BsInput(Input input, int size) {
         this.input = input;
         this.size = size;
     }

@@ -2,7 +2,7 @@ package org.jimkast.http.tk;
 
 import java.io.File;
 import org.cactoos.io.InputOf;
-import org.jimkast.io.bs.InputAsByteSource;
+import org.jimkast.io.bs.BsInput;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
@@ -34,7 +34,7 @@ public final class TkFiles implements HttpServerMapping {
         return file.exists() ?
             new RsBasic(
                 new RsWithHeaders("Content-Length: " + file.length()),
-                new InputAsByteSource(new InputOf(file))
+                new BsInput(new InputOf(file))
             ) : notFound.exchange(in);
     }
 }

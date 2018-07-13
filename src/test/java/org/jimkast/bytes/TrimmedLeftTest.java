@@ -1,14 +1,17 @@
 package org.jimkast.bytes;
 
 import java.io.IOException;
-import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import org.cactoos.io.DeadOutputStream;
 import org.cactoos.io.InputOf;
 import org.cactoos.text.TextOf;
 import org.cactoos.text.TrimmedLeftText;
-import org.jimkast.io.bs.InputAsByteSource;
-import org.jimkast.text.TextInput;
+import org.jimkast.io.bs.BsInput;
+import org.jimkast.text.TextInputOf;
+import org.jimkast.text.stream.SplitText;
+import org.jimkast.text.stream.TextLimited;
+import org.jimkast.text.stream.TextSkipped;
+import org.jimkast.text.stream.TextTrimmedLeft;
 import org.junit.Test;
 import org.xnio.streams.ReaderInputStream;
 
@@ -16,8 +19,7 @@ public class TrimmedLeftTest {
 
     @Test
     public void split() throws IOException {
-        TextInput in = () -> new StringReader("  \n      sdfg dgha 45y rfh  ");
-        for (String s : new SplitText("\\s+", in)) {
+        for (String s : new SplitText("\\s+", new TextInputOf("  \n      sdfg dgha 45y rfh  "))) {
             System.out.println("part: " + s);
         }
     }
@@ -25,8 +27,7 @@ public class TrimmedLeftTest {
 
     @Test
     public void stream() throws IOException {
-        TextInput in = () -> new StringReader("  \n      sdfg dgha 45y rfh  ");
-        new InputAsByteSource(
+        new BsInput(
             new InputOf(
                 new ReaderInputStream(
                     new TextLimited(
@@ -34,7 +35,7 @@ public class TrimmedLeftTest {
                         new TextSkipped(
                             3,
                             new TextTrimmedLeft(
-                                in
+                                new TextInputOf("  \n      sdfg dgha 45y rfh  ")
                             )
                         )
                     ).stream(),
@@ -54,7 +55,7 @@ public class TrimmedLeftTest {
 
     @Test
     public void stream2() throws Exception {
-        new InputAsByteSource(
+        new BsInput(
             new InputOf(new TrimmedLeftText(new TextOf("  \n      sdfg dgha 45y rfh  ")).asString().substring(3, 5)
             )
         ).print(new DeadOutputStream());

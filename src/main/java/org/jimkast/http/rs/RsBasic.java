@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import org.cactoos.Input;
 import org.jimkast.io.BytesSource;
-import org.jimkast.io.bs.InputAsByteSource;
+import org.jimkast.io.bs.BsInput;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpOut;
@@ -54,7 +54,7 @@ public final class RsBasic implements HttpOut {
     }
 
     public RsBasic(Input body) {
-        this(new InputAsByteSource(body));
+        this(new BsInput(body));
     }
 
     public RsBasic(BytesSource body) {
@@ -62,7 +62,7 @@ public final class RsBasic implements HttpOut {
     }
 
     public RsBasic(HttpHead head, Input body) {
-        this(head, new InputAsByteSource(body));
+        this(head, new BsInput(body));
     }
 
     public RsBasic(HttpHead head, BytesSource body) {

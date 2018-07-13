@@ -1,20 +1,19 @@
-package org.jimkast.io.bs;
+package org.jimkast.net.bk;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.jimkast.net.bk.BytesExchange;
 import org.jimkast.io.BytesSource;
 
-public final class BsBuffered implements BytesExchange {
+public final class BxBuffered implements BytesExchange {
     private final Number size;
     private final BytesExchange origin;
 
-    public BsBuffered(BytesExchange origin) {
+    public BxBuffered(BytesExchange origin) {
         this(8192, origin);
     }
 
-    public BsBuffered(Number size, BytesExchange origin) {
+    public BxBuffered(Number size, BytesExchange origin) {
         this.size = size;
         this.origin = origin;
     }

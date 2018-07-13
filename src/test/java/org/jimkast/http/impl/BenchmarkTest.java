@@ -7,14 +7,14 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.cactoos.io.InputOf;
-import org.jimkast.io.bs.InputAsByteSource;
+import org.jimkast.io.bs.BsInput;
 import org.junit.Test;
 
 public final class BenchmarkTest {
     @Test
     public void jetty() throws Exception {
         Callable<String> c = () -> {
-            new InputAsByteSource(new InputOf(new URL("http://localhost:9999/ccc"))).print(System.out);
+            new BsInput(new InputOf(new URL("http://localhost:9999/ccc"))).print(System.out);
             System.out.println("");
             return "123";
         };

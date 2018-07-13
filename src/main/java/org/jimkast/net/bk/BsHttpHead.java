@@ -5,9 +5,9 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
-import org.jimkast.io.BytesSource;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
+import org.jimkast.io.BytesSource;
 
 public final class BsHttpHead implements BytesSource {
     private final HttpHead head;
@@ -19,11 +19,22 @@ public final class BsHttpHead implements BytesSource {
     @Override
     public long print(OutputStream out) throws IOException {
         String eol = "\r\n";
+        char delim = ':';
+        char space = ' ';
         Writer writer = new OutputStreamWriter(out, StandardCharsets.UTF_8);
-        writer.write(String.join(" ", head.line()));
+        boolean nfirst = false;
+        for (String s : head.line()) {
+            if (nfirst) {
+                writer.write(space);
+            }
+            nfirst = true;
+            writer.write(s);
+        }
         writer.write(eol);
         for (Header h : head.headers()) {
-            writer.write(h.name() + ":" + h.value());
+            writer.write(h.name());
+            writer.write(delim);
+            writer.write(h.value());
             writer.write(eol);
         }
         writer.write(eol);

@@ -4,7 +4,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import org.cactoos.scalar.StickyScalar;
 import org.cactoos.scalar.UncheckedScalar;
-import org.jimkast.io.bs.InputAsByteSource;
+import org.jimkast.io.bs.BsInput;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
@@ -40,7 +40,7 @@ public final class TkClasspath implements HttpServerMapping {
             UncheckedScalar<URLConnection> conn = new UncheckedScalar<>(new StickyScalar<>(url::openConnection));
             res = new RsBasic(
                 new RsWithHeaders(new Concat("Content-Length: ", new TextEnvelope(() -> String.valueOf(conn.value().getContentLength())))),
-                new InputAsByteSource(() -> conn.value().getInputStream())
+                new BsInput(() -> conn.value().getInputStream())
             );
         }
         return res;
