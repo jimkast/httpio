@@ -9,6 +9,10 @@ public final class SplitText implements Iterable<String> {
     private final Pattern regex;
     private final TextInput input;
 
+    public SplitText(String regex, TextInput input) {
+        this(Pattern.compile(regex), input);
+    }
+
     public SplitText(Pattern regex, TextInput input) {
         this.regex = regex;
         this.input = input;
@@ -16,17 +20,6 @@ public final class SplitText implements Iterable<String> {
 
     @Override
     public Iterator<String> iterator() {
-        Scanner scanner = new Scanner(new TextInput.Unchecked(input).stream()).useDelimiter(regex);
-        return new Iterator<String>() {
-            @Override
-            public boolean hasNext() {
-                return scanner.hasNext();
-            }
-
-            @Override
-            public String next() {
-                return scanner.next();
-            }
-        };
+        return new Scanner(new TextInput.Unchecked(input).stream()).useDelimiter(regex);
     }
 }
