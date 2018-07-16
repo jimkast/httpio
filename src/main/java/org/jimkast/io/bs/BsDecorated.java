@@ -15,7 +15,7 @@ public final class BsDecorated implements BytesSource {
     }
 
     @Override
-    public long print(OutputStream out) throws IOException {
+    public BytesSource print(OutputStream out) throws IOException {
         return origin.print(decorator.apply(out));
     }
 }

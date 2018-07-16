@@ -9,6 +9,7 @@ import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
+import org.jimkast.io.BytesSource;
 
 public final class RsEmpty implements HttpIn, HttpOut {
     private static final HttpLine LINE = new HttpLine.Raw("HTTP/1.1", "200", "OK");
@@ -29,7 +30,7 @@ public final class RsEmpty implements HttpIn, HttpOut {
     }
 
     @Override
-    public long print(OutputStream out) throws IOException {
-        return 0;
+    public BytesSource print(OutputStream out) throws IOException {
+        return this;
     }
 }

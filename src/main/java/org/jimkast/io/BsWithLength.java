@@ -7,5 +7,5 @@ public interface BsWithLength extends BytesSource {
     long length();
 
     @Override
-    long print(OutputStream out) throws IOException;
+    BytesSource print(OutputStream out) throws IOException;
 }

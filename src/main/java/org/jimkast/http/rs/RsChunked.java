@@ -7,6 +7,7 @@ import org.cactoos.iterable.Joined;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpLine;
+import org.jimkast.io.BytesSource;
 import sun.net.www.http.ChunkedOutputStream;
 
 public final class RsChunked implements HttpOut {
@@ -27,7 +28,7 @@ public final class RsChunked implements HttpOut {
     }
 
     @Override
-    public long print(OutputStream out) throws IOException {
+    public BytesSource print(OutputStream out) throws IOException {
         return this.out.print(new ChunkedOutputStream(new PrintStream(out)));
     }
 }

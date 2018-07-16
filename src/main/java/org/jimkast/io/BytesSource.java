@@ -4,10 +4,15 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 public interface BytesSource {
-    long print(OutputStream out) throws IOException;
+    BytesSource print(OutputStream out) throws IOException;
 
 
-    BytesSource EMPTY = out -> 0;
+    BytesSource EMPTY = new BytesSource() {
+        @Override
+        public BytesSource print(OutputStream out) {
+            return this;
+        }
+    };
 
 
     class Envelope implements BytesSource {
@@ -18,7 +23,7 @@ public interface BytesSource {
         }
 
         @Override
-        public final long print(OutputStream out) throws IOException {
+        public final BytesSource print(OutputStream out) throws IOException {
             return origin.print(out);
         }
     }

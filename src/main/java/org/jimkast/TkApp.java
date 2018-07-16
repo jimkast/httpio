@@ -1,5 +1,7 @@
 package org.jimkast;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Paths;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.route.ChkForUri;
@@ -14,6 +16,7 @@ import org.jimkast.http.tk.TkFiles;
 import org.jimkast.http.tk.TkFixed;
 import org.jimkast.bool.And;
 import org.jimkast.bool.ChkEqualsIgnoreCase;
+import org.jimkast.io.BytesSource;
 
 public final class TkApp extends HttpServerMapping.Envelope {
     public TkApp() {
@@ -29,12 +32,15 @@ public final class TkApp extends HttpServerMapping.Envelope {
                 ),
                 new RtExactMatch("/eee", new TkFixed(
                     new RsBasic(
-                        out -> {
-                            byte[] bytes = "dfgdf g54tdghf 5y6 54yfcgh\n".getBytes();
-                            for (int i = 0; i < 50; i++) {
-                                out.write(bytes);
+                        out -> new BytesSource() {
+                            @Override
+                            public BytesSource print(OutputStream out) throws IOException {
+                                byte[] bytes = "dfgdf g54tdghf 5y6 54yfcgh\n".getBytes();
+                                for (int i = 0; i < 50; i++) {
+                                    out.write(bytes);
+                                }
+                                return this;
                             }
-                            return 0;
                         }
                     )
                 )),

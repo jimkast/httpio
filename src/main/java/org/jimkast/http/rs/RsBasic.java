@@ -81,7 +81,7 @@ public final class RsBasic implements HttpOut {
     }
 
     @Override
-    public long print(OutputStream out) throws IOException {
+    public BytesSource print(OutputStream out) throws IOException {
         return body.print(out);
     }
 }

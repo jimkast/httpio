@@ -6,6 +6,7 @@ import org.cactoos.Input;
 import org.cactoos.io.LengthOf;
 import org.cactoos.io.OutputTo;
 import org.cactoos.io.TeeInput;
+import org.cactoos.scalar.IoCheckedScalar;
 import org.jimkast.io.BytesSource;
 
 public final class BsInput implements BytesSource {
@@ -22,7 +23,8 @@ public final class BsInput implements BytesSource {
     }
 
     @Override
-    public long print(OutputStream out) throws IOException {
-        return new LengthOf(new TeeInput(input, new OutputTo(out)), size).longValue();
+    public BytesSource print(OutputStream out) throws IOException {
+        new IoCheckedScalar<>(new LengthOf(new TeeInput(input, new OutputTo(out)), size)).value();
+        return this;
     }
 }

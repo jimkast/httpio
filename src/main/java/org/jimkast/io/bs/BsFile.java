@@ -19,8 +19,8 @@ public final class BsFile implements BytesSource {
     }
 
     @Override
-    public long print(OutputStream out) throws IOException {
+    public BytesSource print(OutputStream out) throws IOException {
         Files.copy(file, out);
-        return 0;
+        return this;
     }
 }

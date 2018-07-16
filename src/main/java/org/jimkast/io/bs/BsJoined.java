@@ -33,7 +33,7 @@ public final class BsJoined implements BytesSource {
     }
 
     @Override
-    public long print(OutputStream out) throws IOException {
+    public BytesSource print(OutputStream out) throws IOException {
         boolean nfirst = true;
         for (BytesSource source : all) {
             if (nfirst) {
@@ -42,6 +42,6 @@ public final class BsJoined implements BytesSource {
             }
             source.print(out);
         }
-        return 0;
+        return this;
     }
 }

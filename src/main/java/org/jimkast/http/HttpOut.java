@@ -12,7 +12,7 @@ public interface HttpOut extends HttpHead, BytesSource {
     Iterable<Header> headers();
 
     @Override
-    long print(OutputStream out) throws IOException;
+    BytesSource print(OutputStream out) throws IOException;
 
 
     class Envelope implements HttpOut {
@@ -33,7 +33,7 @@ public interface HttpOut extends HttpHead, BytesSource {
         }
 
         @Override
-        public final long print(OutputStream out) throws IOException {
+        public final BytesSource print(OutputStream out) throws IOException {
             return origin.print(out);
         }
     }

@@ -17,7 +17,7 @@ public final class BsHttpHead implements BytesSource {
     }
 
     @Override
-    public long print(OutputStream out) throws IOException {
+    public BytesSource print(OutputStream out) throws IOException {
         String eol = "\r\n";
         char delim = ':';
         char space = ' ';
@@ -39,6 +39,6 @@ public final class BsHttpHead implements BytesSource {
         }
         writer.write(eol);
         writer.flush();
-        return 0;
+        return this;
     }
 }
