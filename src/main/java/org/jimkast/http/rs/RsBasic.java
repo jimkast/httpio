@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import org.cactoos.Input;
 import org.jimkast.io.BytesSource;
 import org.jimkast.io.bs.BsInput;
@@ -25,7 +26,7 @@ public final class RsBasic implements HttpOut {
         this(new HttpStatusLine(code));
     }
 
-    public RsBasic(Iterable<String> line) {
+    public RsBasic(List<String> line) {
         this(line, BytesSource.EMPTY);
     }
 
@@ -33,7 +34,7 @@ public final class RsBasic implements HttpOut {
         this(new HttpStatusLine(code), body);
     }
 
-    public RsBasic(Iterable<String> line, BytesSource body) {
+    public RsBasic(List<String> line, BytesSource body) {
         this(line, Collections.emptyList(), body);
     }
 
@@ -45,7 +46,7 @@ public final class RsBasic implements HttpOut {
         this(new HttpStatusLine(code), headers, body);
     }
 
-    public RsBasic(Iterable<String> line, Iterable<Header> headers, BytesSource body) {
+    public RsBasic(List<String> line, Iterable<Header> headers, BytesSource body) {
         this(new HttpHeadBasic(line, headers), body);
     }
 
@@ -71,7 +72,7 @@ public final class RsBasic implements HttpOut {
     }
 
     @Override
-    public Iterable<String> line() {
+    public List<String> line() {
         return head.line();
     }
 

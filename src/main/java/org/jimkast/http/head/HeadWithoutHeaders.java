@@ -2,6 +2,7 @@ package org.jimkast.http.head;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.function.Predicate;
 import org.cactoos.collection.CollectionOf;
 import org.cactoos.iterable.Filtered;
@@ -30,7 +31,7 @@ public final class HeadWithoutHeaders implements HttpHead {
     }
 
     @Override
-    public Iterable<String> line() {
+    public List<String> line() {
         return origin.line();
     }
 

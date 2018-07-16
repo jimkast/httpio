@@ -3,13 +3,14 @@ package org.jimkast.http.head;
 import java.net.HttpURLConnection;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.cactoos.list.Mapped;
-import org.jimkast.iterable.IterableEnvelope;
-import org.jimkast.text.TextEnvelope;
+import org.jimkast.iterable.ListEnvelope;
 import org.jimkast.map.Mapping;
+import org.jimkast.text.TextEnvelope;
 
-public final class HttpStatusLine extends IterableEnvelope<String>{
+public final class HttpStatusLine extends ListEnvelope<String> {
     public HttpStatusLine(Number code) {
         this(code, new HttpDefaultReason(code));
     }
@@ -23,7 +24,7 @@ public final class HttpStatusLine extends IterableEnvelope<String>{
         this(new Mapped<>(CharSequence::toString, Arrays.asList(parts)));
     }
 
-    public HttpStatusLine(Iterable<String> origin) {
+    public HttpStatusLine(List<String> origin) {
         super(origin);
     }
 

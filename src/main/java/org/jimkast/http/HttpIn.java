@@ -2,11 +2,12 @@ package org.jimkast.http;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import org.cactoos.Input;
 
 public interface HttpIn extends HttpHead, Input {
     @Override
-    Iterable<String> line();
+    List<String> line();
 
     @Override
     Iterable<Header> headers();
@@ -23,7 +24,7 @@ public interface HttpIn extends HttpHead, Input {
         }
 
         @Override
-        public Iterable<String> line() {
+        public List<String> line() {
             return origin.line();
         }
 

@@ -5,15 +5,16 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 
 public final class RqEmpty implements HttpIn, HttpOut {
-    private static final Iterable<String> LINE = Arrays.asList("GET", "/", "HTTP1/1");
+    private static final List<String> LINE = Arrays.asList("GET", "/", "HTTP1/1");
 
     @Override
-    public Iterable<String> line() {
+    public List<String> line() {
         return LINE;
     }
 

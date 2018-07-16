@@ -2,31 +2,33 @@ package org.jimkast.http.rq;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import org.cactoos.iterable.StickyIterable;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
+import org.jimkast.iterable.ListEnvelope;
 
 public final class RqCachedHead implements HttpIn {
-    private final Iterable<String> line;
+    private final List<String> line;
     private final Iterable<Header> headers;
     private final HttpIn body;
 
     public RqCachedHead(HttpIn origin) {
         this(
-            () -> origin.line().iterator(),
+            new ListEnvelope<>(origin::line),
             new StickyIterable<>(() -> origin.headers().iterator()),
             origin
         );
     }
 
-    public RqCachedHead(Iterable<String> line, Iterable<Header> headers, HttpIn body) {
+    public RqCachedHead(List<String> line, Iterable<Header> headers, HttpIn body) {
         this.line = line;
         this.headers = headers;
         this.body = body;
     }
 
     @Override
-    public Iterable<String> line() {
+    public List<String> line() {
         return line;
     }
 

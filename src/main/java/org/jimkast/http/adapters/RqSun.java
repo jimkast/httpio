@@ -18,7 +18,7 @@ public final class RqSun implements HttpIn {
     }
 
     @Override
-    public Iterable<String> line() {
+    public List<String> line() {
         return Arrays.asList(
             exchange.getRequestMethod(),
             exchange.getRequestURI().toString(),

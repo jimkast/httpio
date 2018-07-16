@@ -18,7 +18,7 @@ public final class RqServlet implements HttpIn {
     }
 
     @Override
-    public Iterable<String> line() {
+    public List<String> line() {
         String q = req.getQueryString();
         return Arrays.asList(
             req.getMethod(),

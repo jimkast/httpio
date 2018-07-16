@@ -2,11 +2,12 @@ package org.jimkast.http;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 import org.jimkast.io.BytesSource;
 
 public interface HttpOut extends HttpHead, BytesSource {
     @Override
-    Iterable<String> line();
+    List<String> line();
 
     @Override
     Iterable<Header> headers();
@@ -23,7 +24,7 @@ public interface HttpOut extends HttpHead, BytesSource {
         }
 
         @Override
-        public final Iterable<String> line() {
+        public final List<String> line() {
             return origin.line();
         }
 

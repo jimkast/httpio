@@ -19,7 +19,7 @@ public final class RqUndertow implements HttpIn {
     }
 
     @Override
-    public Iterable<String> line() {
+    public List<String> line() {
         String q = exchange.getQueryString();
         return Arrays.asList(
             exchange.getRequestMethod().toString(),

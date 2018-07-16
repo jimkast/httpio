@@ -1,24 +1,25 @@
 package org.jimkast.http.head;
 
 import java.util.Collections;
+import java.util.List;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
 
 public final class HttpHeadBasic implements HttpHead {
-    private final Iterable<String> line;
+    private final List<String> line;
     private final Iterable<Header> headers;
 
-    public HttpHeadBasic(Iterable<String> line) {
+    public HttpHeadBasic(List<String> line) {
         this(line, Collections.emptyList());
     }
 
-    public HttpHeadBasic(Iterable<String> line, Iterable<Header> headers) {
+    public HttpHeadBasic(List<String> line, Iterable<Header> headers) {
         this.line = line;
         this.headers = headers;
     }
 
     @Override
-    public Iterable<String> line() {
+    public List<String> line() {
         return line;
     }
 
