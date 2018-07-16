@@ -10,7 +10,6 @@ import org.cactoos.iterable.Mapped;
 import org.cactoos.scalar.StickyScalar;
 import org.cactoos.scalar.UncheckedScalar;
 import org.jimkast.text.TextInput;
-import org.jimkast.text.TextInputOf;
 
 public final class FormDecodedParams implements Iterable<Map.Entry<String, String>> {
     private final Iterable<Map.Entry<String, String>> origin;

@@ -1,7 +1,7 @@
 package org.jimkast.bytes;
 
 import java.util.Map;
-import org.jimkast.text.TextInputOf;
+import org.jimkast.text.stream.TextInputOf;
 import org.jimkast.text.stream.FormDecodedParams;
 import org.junit.Test;
 

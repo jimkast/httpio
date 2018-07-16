@@ -7,7 +7,7 @@ import org.cactoos.io.InputOf;
 import org.cactoos.text.TextOf;
 import org.cactoos.text.TrimmedLeftText;
 import org.jimkast.io.bs.BsInput;
-import org.jimkast.text.TextInputOf;
+import org.jimkast.text.stream.TextInputOf;
 import org.jimkast.text.stream.SplitText;
 import org.jimkast.text.stream.TextLimited;
 import org.jimkast.text.stream.TextSkipped;

@@ -1,4 +1,4 @@
-package org.jimkast.text;
+package org.jimkast.text.stream;
 
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -7,6 +7,7 @@ import java.io.StringReader;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import org.cactoos.Input;
+import org.jimkast.text.TextInput;
 
 public final class TextInputOf extends TextInput.Envelope {
     public TextInputOf(Input input) {

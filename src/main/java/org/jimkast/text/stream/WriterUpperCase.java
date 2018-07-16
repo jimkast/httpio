@@ -1,4 +1,4 @@
-package org.jimkast.text;
+package org.jimkast.text.stream;
 
 import java.io.FilterWriter;
 import java.io.IOException;

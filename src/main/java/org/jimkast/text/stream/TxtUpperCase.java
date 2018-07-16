@@ -1,7 +1,8 @@
-package org.jimkast.text;
+package org.jimkast.text.stream;
 
 import java.io.IOException;
 import java.io.Writer;
+import org.jimkast.text.TextSource;
 
 public final class TxtUpperCase implements TextSource {
     private final TextSource source;

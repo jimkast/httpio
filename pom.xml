@@ -46,6 +46,15 @@
             <artifactId>mina-core</artifactId>
             <version>3.0.0-M2</version>
         </dependency>
-
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>9.8.0-12</version>
+        </dependency>
+        <dependency>
+            <groupId>com.eclipsesource.minimal-json</groupId>
+            <artifactId>minimal-json</artifactId>
+            <version>0.9.5</version>
+        </dependency>
     </dependencies>
 </project>
