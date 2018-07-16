@@ -27,4 +27,25 @@ public interface InputWithLength extends Input {
             return origin.stream();
         }
     }
+
+
+    final class Known implements InputWithLength {
+        private final Number length;
+        private final Input input;
+
+        public Known(Number length, Input input) {
+            this.length = length;
+            this.input = input;
+        }
+
+        @Override
+        public long size() throws Exception {
+            return length.longValue();
+        }
+
+        @Override
+        public InputStream stream() throws Exception {
+            return input.stream();
+        }
+    }
 }

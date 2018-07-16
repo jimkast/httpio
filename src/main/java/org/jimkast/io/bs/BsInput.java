@@ -13,7 +13,7 @@ public final class BsInput implements BytesSource {
     private final int size;
 
     public BsInput(Input input) {
-        this(input, 4096);
+        this(input, 8192);
     }
 
     public BsInput(Input input, int size) {

@@ -1,40 +1,39 @@
 package org.jimkast.http.tk;
 
-import java.io.File;
-import org.cactoos.io.InputOf;
-import org.jimkast.io.bs.BsInput;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.route.TkNotFound;
+import org.jimkast.http.rq.RqPath;
 import org.jimkast.http.rq.RqUri;
-import org.jimkast.http.rs.RsBasic;
-import org.jimkast.http.rs.RsWithHeaders;
+import org.jimkast.map.Mapping;
 
 public final class TkFiles implements HttpServerMapping {
-    private final File root;
+    private final Mapping<String, Path> mapping;
     private final HttpServerMapping notFound;
 
-    public TkFiles(File root) {
+    public TkFiles(Path root) {
         this(root, new TkNotFound());
     }
 
-    public TkFiles(File root, HttpOut notFound) {
+    public TkFiles(Path root, HttpOut notFound) {
         this(root, new TkFixed(notFound));
     }
 
-    public TkFiles(File root, HttpServerMapping notFound) {
-        this.root = root;
+    public TkFiles(Path root, HttpServerMapping notFound) {
+        this(root::resolve, notFound);
+    }
+
+    public TkFiles(Mapping<String, Path> mapping, HttpServerMapping notFound) {
+        this.mapping = mapping;
         this.notFound = notFound;
     }
 
     @Override
     public HttpOut exchange(HttpIn in) {
-        File file = new File(root, new RqUri(in).toString());
-        return file.exists() ?
-            new RsBasic(
-                new RsWithHeaders("Content-Length: " + file.length()),
-                new BsInput(new InputOf(file))
-            ) : notFound.exchange(in);
+        Path file = mapping.map(new RqPath(in).toString().substring(1));
+        return Files.exists(file) ? new RsFile(file) : notFound.exchange(in);
     }
 }

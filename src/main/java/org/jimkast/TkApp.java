@@ -43,7 +43,7 @@ public final class TkApp extends HttpServerMapping.Envelope {
                 }),
                 new RtExactMatch("/aaa", new TkFixed(new RsText("aaaaaaaaaaaaaaaaaaaaa"))),
                 new RtRegex("/bbb", new TkFixed(new RsText("fgchcf 56y5"))),
-                new RtRegex("/news/.*", new TkFiles(Paths.get("/data/images").toFile(), new RsText("File not found.")))
+                new RtRegex("/news/.*", new TkFiles(Paths.get("/data/images"), new RsText("File not found.")))
             )
         );
     }
