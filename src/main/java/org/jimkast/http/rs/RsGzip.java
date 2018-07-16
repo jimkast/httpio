@@ -2,11 +2,11 @@ package org.jimkast.http.rs;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.List;
 import java.util.zip.GZIPOutputStream;
 import org.cactoos.iterable.Joined;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpOut;
+import org.jimkast.http.HttpLine;
 
 public final class RsGzip implements HttpOut {
     private final HttpOut out;
@@ -16,7 +16,7 @@ public final class RsGzip implements HttpOut {
     }
 
     @Override
-    public List<String> line() {
+    public HttpLine line() {
         return out.line();
     }
 

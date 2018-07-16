@@ -3,12 +3,12 @@ package org.jimkast.http.adapters;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import com.sun.net.httpserver.HttpExchange;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
+import org.jimkast.http.HttpLine;
 
 public final class RqSun implements HttpIn {
     private final HttpExchange exchange;
@@ -18,8 +18,8 @@ public final class RqSun implements HttpIn {
     }
 
     @Override
-    public List<String> line() {
-        return Arrays.asList(
+    public HttpLine line() {
+        return new HttpLine.Raw(
             exchange.getRequestMethod(),
             exchange.getRequestURI().toString(),
             exchange.getProtocol()

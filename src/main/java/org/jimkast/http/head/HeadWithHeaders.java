@@ -1,11 +1,11 @@
 package org.jimkast.http.head;
 
 import java.util.Arrays;
-import java.util.List;
 import org.cactoos.iterable.Joined;
 import org.cactoos.list.Mapped;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
+import org.jimkast.http.HttpLine;
 import org.jimkast.http.rs.RsEmpty;
 
 public final class HeadWithHeaders implements HttpHead {
@@ -34,7 +34,7 @@ public final class HeadWithHeaders implements HttpHead {
     }
 
     @Override
-    public List<String> line() {
+    public HttpLine line() {
         return origin.line();
     }
 

@@ -3,12 +3,12 @@ package org.jimkast.http.adapters;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.HeaderValues;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpIn;
+import org.jimkast.http.HttpLine;
 import org.jimkast.io.InputStreamNoClose;
 
 public final class RqUndertow implements HttpIn {
@@ -19,9 +19,9 @@ public final class RqUndertow implements HttpIn {
     }
 
     @Override
-    public List<String> line() {
+    public HttpLine line() {
         String q = exchange.getQueryString();
-        return Arrays.asList(
+        return new HttpLine.Raw(
             exchange.getRequestMethod().toString(),
             exchange.getRequestURI() + (q == null || q.isEmpty() ? "" : "?" + q),
             exchange.getProtocol().toString()

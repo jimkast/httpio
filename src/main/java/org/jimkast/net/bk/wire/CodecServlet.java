@@ -19,12 +19,13 @@ public final class CodecServlet implements HttpCodec {
     }
 
     @Override
-    public HttpIn parse() throws IOException {
+    public HttpIn read() throws IOException {
         return new RqCachedHead(new RqServlet(req));
     }
 
     @Override
-    public void send(HttpOut out) throws IOException {
+    public HttpCodec write(HttpOut out) throws IOException {
         new RsServlet(out).apply(res);
+        return this;
     }
 }

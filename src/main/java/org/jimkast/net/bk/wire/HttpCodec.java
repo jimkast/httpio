@@ -5,7 +5,7 @@ import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 
 public interface HttpCodec {
-    HttpIn parse() throws IOException;
+    HttpIn read() throws IOException;
 
-    void send(HttpOut out) throws IOException;
+    HttpCodec write(HttpOut out) throws IOException;
 }

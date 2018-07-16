@@ -1,9 +1,7 @@
 package org.jimkast.http;
 
-import java.util.List;
-
 public interface HttpHead {
-    List<String> line();
+    HttpLine line();
 
     Iterable<Header> headers();
 
@@ -16,7 +14,7 @@ public interface HttpHead {
         }
 
         @Override
-        public final List<String> line() {
+        public final HttpLine line() {
             return origin.line();
         }
 

@@ -3,10 +3,10 @@ package org.jimkast.http.rs;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.List;
 import org.cactoos.iterable.Joined;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpOut;
+import org.jimkast.http.HttpLine;
 import sun.net.www.http.ChunkedOutputStream;
 
 public final class RsChunked implements HttpOut {
@@ -17,7 +17,7 @@ public final class RsChunked implements HttpOut {
     }
 
     @Override
-    public List<String> line() {
+    public HttpLine line() {
         return out.line();
     }
 

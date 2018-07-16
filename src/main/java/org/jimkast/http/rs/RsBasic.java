@@ -2,31 +2,30 @@ package org.jimkast.http.rs;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 import org.cactoos.Input;
-import org.jimkast.io.BytesSource;
-import org.jimkast.io.bs.BsInput;
 import org.jimkast.http.Header;
 import org.jimkast.http.HttpHead;
+import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.head.HttpHeadBasic;
 import org.jimkast.http.head.HttpStatusLine;
+import org.jimkast.io.BytesSource;
+import org.jimkast.io.bs.BsInput;
 
 public final class RsBasic implements HttpOut {
     private final HttpHead head;
     private final BytesSource body;
 
     public RsBasic() {
-        this(Arrays.asList("HTTP/1.1", "200", "OK"));
+        this(200);
     }
 
     public RsBasic(Number code) {
         this(new HttpStatusLine(code));
     }
 
-    public RsBasic(List<String> line) {
+    public RsBasic(HttpLine line) {
         this(line, BytesSource.EMPTY);
     }
 
@@ -34,7 +33,7 @@ public final class RsBasic implements HttpOut {
         this(new HttpStatusLine(code), body);
     }
 
-    public RsBasic(List<String> line, BytesSource body) {
+    public RsBasic(HttpLine line, BytesSource body) {
         this(line, Collections.emptyList(), body);
     }
 
@@ -46,7 +45,7 @@ public final class RsBasic implements HttpOut {
         this(new HttpStatusLine(code), headers, body);
     }
 
-    public RsBasic(List<String> line, Iterable<Header> headers, BytesSource body) {
+    public RsBasic(HttpLine line, Iterable<Header> headers, BytesSource body) {
         this(new HttpHeadBasic(line, headers), body);
     }
 
@@ -72,7 +71,7 @@ public final class RsBasic implements HttpOut {
     }
 
     @Override
-    public List<String> line() {
+    public HttpLine line() {
         return head.line();
     }
 
