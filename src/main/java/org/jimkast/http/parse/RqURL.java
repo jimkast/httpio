@@ -6,6 +6,6 @@ import org.jimkast.text.TextEnvelope;
 
 public final class RqURL extends TextEnvelope {
     public RqURL(HttpHead req) {
-        super(new Concat("http://", new RqHeaderValue(req, "Host"), new RqURI(req)));
+        super(new Concat("http://", new HttpHeaderValue(req, "Host"), new RqURI(req)));
     }
 }

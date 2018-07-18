@@ -8,7 +8,7 @@ public final class HeaderParsed implements Prop {
     private final UncheckedScalar<String[]> parts;
 
     public HeaderParsed(CharSequence full) {
-        this(new UncheckedScalar<>(new StickyScalar<>(() -> full.toString().split("\\s*:\\s*", 2))));
+        this(new UncheckedScalar<>(new StickyScalar<>(() -> full.toString().trim().split("\\s*:\\s*", 2))));
     }
 
     public HeaderParsed(UncheckedScalar<String[]> parts) {

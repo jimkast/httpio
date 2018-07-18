@@ -6,6 +6,10 @@ import org.jimkast.text.TextEnvelope;
 
 public final class RqURI extends TextEnvelope {
     public RqURI(HttpHead head) {
-        super(new ItemAt<>(1, () -> head.line().iterator()));
+        this(new HttpHead.LineParts(head));
+    }
+
+    public RqURI(Iterable<String> line) {
+        super(new ItemAt<>(1, line));
     }
 }

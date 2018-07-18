@@ -9,8 +9,16 @@ public final class SplitText implements Iterable<String> {
     private final Pattern regex;
     private final TextInput input;
 
+    public SplitText(String regex, CharSequence input) {
+        this(regex, new TextInputOf(input));
+    }
+
     public SplitText(String regex, TextInput input) {
         this(Pattern.compile(regex), input);
+    }
+
+    public SplitText(Pattern regex, CharSequence input) {
+        this(regex, new TextInputOf(input));
     }
 
     public SplitText(Pattern regex, TextInput input) {

@@ -8,7 +8,7 @@ public final class RqIP extends TextEnvelope {
     public RqIP(HttpHead req) {
         super(
             new TextNextIfEmpty(
-                new RqHeaderValue(req, "X-Forwarded-For"),
+                new HttpHeaderValue(req, "X-Forwarded-For"),
                 new RqRemoteAddr(req)
             )
         );
