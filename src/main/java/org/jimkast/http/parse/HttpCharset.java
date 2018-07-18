@@ -1,7 +1,6 @@
 package org.jimkast.http.parse;
 
 import org.jimkast.http.HttpHead;
-import org.jimkast.map.PropsValue;
 import org.jimkast.text.TextEnvelope;
 
 public final class HttpCharset extends TextEnvelope {
@@ -14,16 +13,25 @@ public final class HttpCharset extends TextEnvelope {
     }
 
     public HttpCharset(CharSequence ctype, CharSequence def) {
-        super(new PropsValue(def, "charset", new HeaderInnerValues(ctype)));
-    }
-
-    private HttpCharset(CharSequence value) {
         super(() -> {
-            String enc = value.toString();
-            if (enc.length() > 2 && enc.startsWith("\"") && enc.endsWith("\"")) {
-                enc = enc.substring(1, enc.length() - 1).trim();
+            String type = ctype.toString();
+            if (type.isEmpty()) {
+                return def.toString();
             }
-            return enc;
+            int start = type.indexOf("charset=");
+            if (start < 0) {
+                return "";
+            }
+            String encoding = type.substring(start + 8);
+            int end = encoding.indexOf(';');
+            if (end >= 0) {
+                encoding = encoding.substring(0, end);
+            }
+            encoding = encoding.trim();
+            if (encoding.length() > 2 && encoding.startsWith("\"") && encoding.endsWith("\"")) {
+                encoding = encoding.substring(1, encoding.length() - 1);
+            }
+            return encoding.trim();
         });
     }
 }

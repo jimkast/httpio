@@ -8,7 +8,7 @@ import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.route.ChkForUri;
 import org.jimkast.http.route.ChkMethod;
-import org.jimkast.http.route.RtExactMatch;
+import org.jimkast.http.route.RtCaseMatch;
 import org.jimkast.http.route.RtRegex;
 import org.jimkast.http.route.RtSimple;
 import org.jimkast.http.route.TkRoute;
@@ -30,7 +30,7 @@ public final class TkApp extends HttpServerMapping.Envelope {
                     ),
                     new TkFixed(new RsText("eee 235 346 rthfdghgf"))
                 ),
-                new RtExactMatch("/eee", new TkFixed(
+                new RtCaseMatch("/eee", new TkFixed(
                     new RsBasic(
                         out -> new BytesSource() {
                             @Override
@@ -44,10 +44,10 @@ public final class TkApp extends HttpServerMapping.Envelope {
                         }
                     )
                 )),
-                new RtExactMatch("/qqq", in -> {
+                new RtCaseMatch("/qqq", in -> {
                     throw new RuntimeException("sdfds gdghf");
                 }),
-                new RtExactMatch("/aaa", new TkFixed(new RsText("aaaaaaaaaaaaaaaaaaaaa"))),
+                new RtCaseMatch("/aaa", new TkFixed(new RsText("aaaaaaaaaaaaaaaaaaaaa"))),
                 new RtRegex("/bbb", new TkFixed(new RsText("fgchcf 56y5"))),
                 new RtRegex("/news/.*", new TkFiles(Paths.get("/data/images"), new RsText("File not found.")))
             )

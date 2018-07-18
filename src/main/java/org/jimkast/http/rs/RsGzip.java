@@ -8,12 +8,16 @@ import org.jimkast.map.Prop;
 
 public final class RsGzip extends HttpOut.Envelope {
     public RsGzip(HttpOut origin) {
+        this(8192, origin);
+    }
+
+    public RsGzip(Number buf, HttpOut origin) {
         super(
             new RsBasic(
                 new HeadWithHeadersPairs(
                     new Prop.Simple("Content-Encoding", "gzip")
                 ),
-                new BsDecorated(out -> new GZIPOutputStream(out, true), origin)
+                new BsDecorated(out -> new GZIPOutputStream(out, buf.intValue(), true), origin)
             )
         );
     }
