@@ -4,7 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collections;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
@@ -19,7 +19,7 @@ public final class RqEmpty implements HttpIn, HttpOut {
     }
 
     @Override
-    public Iterable<Header> headers() {
+    public Iterable<Prop> headers() {
         return Collections.emptyList();
     }
 

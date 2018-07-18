@@ -8,16 +8,16 @@ import org.jimkast.iterable.StringValues;
 import org.jimkast.map.Mapping;
 import org.jimkast.text.TextEnvelope;
 
-public final class HttpStatusLine extends HttpLine.Raw {
-    public HttpStatusLine(Number code) {
+public final class StatusLineBasic extends HttpLine.Raw {
+    public StatusLineBasic(Number code) {
         this(code, new HttpDefaultReason(code));
     }
 
-    public HttpStatusLine(Number code, CharSequence reason) {
+    public StatusLineBasic(Number code, CharSequence reason) {
         this("HTTP/1.1", code, reason);
     }
 
-    public HttpStatusLine(CharSequence version, Number code, CharSequence reason) {
+    public StatusLineBasic(CharSequence version, Number code, CharSequence reason) {
         super(new StringValues(version, new TextEnvelope(code::toString), reason));
     }
 

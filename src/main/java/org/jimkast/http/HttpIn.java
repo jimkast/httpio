@@ -9,7 +9,7 @@ public interface HttpIn extends HttpHead, Input {
     HttpLine line();
 
     @Override
-    Iterable<Header> headers();
+    Iterable<Prop> headers();
 
     @Override
     InputStream stream() throws IOException;
@@ -28,7 +28,7 @@ public interface HttpIn extends HttpHead, Input {
         }
 
         @Override
-        public Iterable<Header> headers() {
+        public Iterable<Prop> headers() {
             return origin.headers();
         }
 

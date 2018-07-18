@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.function.Predicate;
 import org.cactoos.collection.CollectionOf;
 import org.cactoos.iterable.Filtered;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpLine;
 
@@ -36,7 +36,7 @@ public final class HeadWithoutHeaders implements HttpHead {
     }
 
     @Override
-    public Iterable<Header> headers() {
+    public Iterable<Prop> headers() {
         return new Filtered<>(
             h -> !check.test(h.name()),
             origin.headers()

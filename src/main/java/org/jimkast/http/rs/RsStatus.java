@@ -3,7 +3,6 @@ package org.jimkast.http.rs;
 
 import org.cactoos.scalar.ItemAt;
 import org.jimkast.http.HttpHead;
-import org.jimkast.http.head.HeadLineParts;
 import org.jimkast.number.IntParsed;
 import org.jimkast.number.NumberEnvelope;
 import org.jimkast.text.TextEnvelope;
@@ -15,7 +14,7 @@ public final class RsStatus extends NumberEnvelope {
                 new TextEnvelope(
                     new ItemAt<>(
                         1,
-                        new HeadLineParts(rs)
+                        new HttpHead.LineParts(rs)
                     )
                 )
             )

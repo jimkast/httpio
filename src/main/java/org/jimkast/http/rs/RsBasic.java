@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collections;
 import org.cactoos.Input;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
-import org.jimkast.http.head.HttpHeadBasic;
-import org.jimkast.http.head.HttpStatusLine;
+import org.jimkast.http.head.HeadBasic;
+import org.jimkast.http.head.StatusLineBasic;
 import org.jimkast.io.BytesSource;
 import org.jimkast.io.bs.BsInput;
 
@@ -22,7 +22,7 @@ public final class RsBasic implements HttpOut {
     }
 
     public RsBasic(Number code) {
-        this(new HttpStatusLine(code));
+        this(new StatusLineBasic(code));
     }
 
     public RsBasic(HttpLine line) {
@@ -30,24 +30,25 @@ public final class RsBasic implements HttpOut {
     }
 
     public RsBasic(Number code, BytesSource body) {
-        this(new HttpStatusLine(code), body);
+        this(new StatusLineBasic(code), body);
     }
 
     public RsBasic(HttpLine line, BytesSource body) {
         this(line, Collections.emptyList(), body);
     }
 
-    public RsBasic(Number code, Iterable<Header> headers) {
-        this(new HttpStatusLine(code), headers, BytesSource.EMPTY);
+    public RsBasic(Number code, Iterable<Prop> headers) {
+        this(new StatusLineBasic(code), headers, BytesSource.EMPTY);
     }
 
-    public RsBasic(Number code, Iterable<Header> headers, BytesSource body) {
-        this(new HttpStatusLine(code), headers, body);
+    public RsBasic(Number code, Iterable<Prop> headers, BytesSource body) {
+        this(new StatusLineBasic(code), headers, body);
     }
 
-    public RsBasic(HttpLine line, Iterable<Header> headers, BytesSource body) {
-        this(new HttpHeadBasic(line, headers), body);
+    public RsBasic(HttpLine line, Iterable<Prop> headers, BytesSource body) {
+        this(new HeadBasic(line, headers), body);
     }
+
 
     public RsBasic(HttpHead head) {
         this(head, BytesSource.EMPTY);
@@ -76,7 +77,7 @@ public final class RsBasic implements HttpOut {
     }
 
     @Override
-    public Iterable<Header> headers() {
+    public Iterable<Prop> headers() {
         return head.headers();
     }
 

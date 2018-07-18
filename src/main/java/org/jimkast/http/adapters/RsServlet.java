@@ -3,7 +3,7 @@ package org.jimkast.http.adapters;
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 import org.cactoos.Func;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.rs.RsStatus;
 
@@ -17,7 +17,7 @@ public final class RsServlet implements Func<HttpServletResponse, HttpServletRes
     @Override
     public HttpServletResponse apply(HttpServletResponse res) throws IOException {
         res.setStatus(new RsStatus(out).intValue());
-        for (Header s : out.headers()) {
+        for (Prop s : out.headers()) {
             res.addHeader(s.name(), s.value());
         }
         out.print(res.getOutputStream());

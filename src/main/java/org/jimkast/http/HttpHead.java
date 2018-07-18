@@ -1,9 +1,11 @@
 package org.jimkast.http;
 
+import java.util.Iterator;
+
 public interface HttpHead {
     HttpLine line();
 
-    Iterable<Header> headers();
+    Iterable<Prop> headers();
 
 
     class Envelope implements HttpHead {
@@ -19,8 +21,36 @@ public interface HttpHead {
         }
 
         @Override
-        public final Iterable<Header> headers() {
+        public final Iterable<Prop> headers() {
             return origin.headers();
+        }
+    }
+
+
+    final class LineParts implements Iterable<String> {
+        private final HttpHead head;
+
+        public LineParts(HttpHead head) {
+            this.head = head;
+        }
+
+        @Override
+        public Iterator<String> iterator() {
+            return head.line().iterator();
+        }
+    }
+
+
+    final class Headers implements Iterable<Prop> {
+        private final HttpHead head;
+
+        public Headers(HttpHead head) {
+            this.head = head;
+        }
+
+        @Override
+        public Iterator<Prop> iterator() {
+            return head.headers().iterator();
         }
     }
 }

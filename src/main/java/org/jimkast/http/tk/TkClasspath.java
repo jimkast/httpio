@@ -4,14 +4,14 @@ import java.net.URL;
 import java.net.URLConnection;
 import org.cactoos.scalar.StickyScalar;
 import org.cactoos.scalar.UncheckedScalar;
-import org.jimkast.io.bs.BsInput;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
+import org.jimkast.http.head.HeadWithHeaders;
 import org.jimkast.http.route.TkNotFound;
-import org.jimkast.http.rq.RqUri;
+import org.jimkast.http.parse.RqURI;
 import org.jimkast.http.rs.RsBasic;
-import org.jimkast.http.rs.RsWithHeaders;
+import org.jimkast.io.bs.BsInput;
 import org.jimkast.text.Concat;
 import org.jimkast.text.TextEnvelope;
 
@@ -33,13 +33,13 @@ public final class TkClasspath implements HttpServerMapping {
     @Override
     public HttpOut exchange(HttpIn in) {
         HttpOut res;
-        URL url = this.getClass().getClassLoader().getResource(new RqUri(in).toString());
+        URL url = this.getClass().getClassLoader().getResource(new RqURI(in).toString());
         if (url == null) {
             res = notFound.exchange(in);
         } else {
             UncheckedScalar<URLConnection> conn = new UncheckedScalar<>(new StickyScalar<>(url::openConnection));
             res = new RsBasic(
-                new RsWithHeaders(new Concat("Content-Length: ", new TextEnvelope(() -> String.valueOf(conn.value().getContentLength())))),
+                new HeadWithHeaders(new Concat("Content-Length: ", new TextEnvelope(() -> String.valueOf(conn.value().getContentLength())))),
                 new BsInput(() -> conn.value().getInputStream())
             );
         }

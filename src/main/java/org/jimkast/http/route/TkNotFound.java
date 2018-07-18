@@ -1,12 +1,12 @@
 package org.jimkast.http.route;
 
 import java.io.UncheckedIOException;
+import org.jimkast.http.HttpException;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
-import org.takes.HttpException;
 
 public final class TkNotFound implements HttpRoute, HttpServerMapping {
     @Override

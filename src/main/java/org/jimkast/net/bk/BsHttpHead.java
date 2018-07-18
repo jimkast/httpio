@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
 import org.jimkast.io.BytesSource;
 
@@ -31,7 +31,7 @@ public final class BsHttpHead implements BytesSource {
             writer.write(s);
         }
         writer.write(eol);
-        for (Header h : head.headers()) {
+        for (Prop h : head.headers()) {
             writer.write(h.name());
             writer.write(delim);
             writer.write(h.value());

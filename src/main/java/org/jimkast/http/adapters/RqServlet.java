@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 
@@ -28,19 +28,19 @@ public final class RqServlet implements HttpIn {
     }
 
     @Override
-    public Iterable<Header> headers() {
-        List<Header> headers = new ArrayList<>();
+    public Iterable<Prop> headers() {
+        List<Prop> headers = new ArrayList<>();
         Enumeration<String> headerNames = req.getHeaderNames();
         while (headerNames.hasMoreElements()) {
             String name = headerNames.nextElement();
             Enumeration<String> headerValues = req.getHeaders(name);
             while (headerValues.hasMoreElements()) {
-                headers.add(new Header.Simple(name, headerValues.nextElement()));
+                headers.add(new Prop.Simple(name, headerValues.nextElement()));
             }
         }
-        headers.add(new Header.Simple("X-Takes-LocalAddress", req.getLocalAddr()));
-        headers.add(new Header.Simple("X-Takes-LocalPort", String.valueOf(req.getLocalPort())));
-        headers.add(new Header.Simple("X-Takes-RemoteAddress", req.getRemoteAddr()));
+        headers.add(new Prop.Simple("X-Takes-LocalAddress", req.getLocalAddr()));
+        headers.add(new Prop.Simple("X-Takes-LocalPort", String.valueOf(req.getLocalPort())));
+        headers.add(new Prop.Simple("X-Takes-RemoteAddress", req.getRemoteAddr()));
         return headers;
     }
 

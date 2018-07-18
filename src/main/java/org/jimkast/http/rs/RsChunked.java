@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import org.cactoos.iterable.Joined;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpLine;
 import org.jimkast.io.BytesSource;
@@ -23,8 +23,8 @@ public final class RsChunked implements HttpOut {
     }
 
     @Override
-    public Iterable<Header> headers() {
-        return new Joined<>(new Header.Simple("Transfer-Encoding", "chucked"), out.headers());
+    public Iterable<Prop> headers() {
+        return new Joined<>(new Prop.Simple("Transfer-Encoding", "chucked"), out.headers());
     }
 
     @Override

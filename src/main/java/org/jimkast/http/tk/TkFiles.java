@@ -6,8 +6,7 @@ import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.route.TkNotFound;
-import org.jimkast.http.rq.RqPath;
-import org.jimkast.http.rq.RqUri;
+import org.jimkast.http.parse.UriPath;
 import org.jimkast.map.Mapping;
 
 public final class TkFiles implements HttpServerMapping {
@@ -33,7 +32,7 @@ public final class TkFiles implements HttpServerMapping {
 
     @Override
     public HttpOut exchange(HttpIn in) {
-        Path file = mapping.map(new RqPath(in).toString().substring(1));
+        Path file = mapping.map(new UriPath(in).toString().substring(1));
         return Files.exists(file) ? new RsFile(file) : notFound.exchange(in);
     }
 }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.HeaderValues;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.io.InputStreamNoClose;
@@ -29,12 +29,12 @@ public final class RqUndertow implements HttpIn {
     }
 
     @Override
-    public Iterable<Header> headers() {
-        List<Header> headers = new ArrayList<>();
+    public Iterable<Prop> headers() {
+        List<Prop> headers = new ArrayList<>();
         for (HeaderValues header : exchange.getRequestHeaders()) {
             String name = header.getHeaderName().toString();
             for (String value : header) {
-                headers.add(new Header.Simple(name, value));
+                headers.add(new Prop.Simple(name, value));
             }
         }
         return headers;

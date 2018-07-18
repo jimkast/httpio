@@ -6,7 +6,7 @@ import java.net.URLConnection;
 import java.util.Date;
 import org.cactoos.Scalar;
 import org.cactoos.scalar.StickyScalar;
-import org.jimkast.http.Header;
+import org.jimkast.http.Prop;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.head.HeadWithHeadersPairs;
 import org.jimkast.http.rs.RsInput;
@@ -30,7 +30,7 @@ public final class RsURL extends HttpOut.Envelope {
             new RsInput(
                 () -> conn.value().getInputStream(),
                 new HeadWithHeadersPairs(
-                    new Header.Simple(
+                    new Prop.Simple(
                         "Last-Modified",
                         new TextEnvelope(() -> new Date(conn.value().getLastModified()).toInstant().toString())
                     )

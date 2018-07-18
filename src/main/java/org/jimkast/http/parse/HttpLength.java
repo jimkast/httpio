@@ -1,7 +1,8 @@
-package org.jimkast.http.rs;
+package org.jimkast.http.parse;
 
 
 import org.jimkast.http.HttpHead;
+import org.jimkast.http.rs.HttpHeaderValue;
 import org.jimkast.number.LongParsed;
 import org.jimkast.number.NumberEnvelope;
 

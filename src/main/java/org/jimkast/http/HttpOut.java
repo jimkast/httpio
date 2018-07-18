@@ -9,7 +9,7 @@ public interface HttpOut extends HttpHead, BytesSource {
     HttpLine line();
 
     @Override
-    Iterable<Header> headers();
+    Iterable<Prop> headers();
 
     @Override
     BytesSource print(OutputStream out) throws IOException;
@@ -28,7 +28,7 @@ public interface HttpOut extends HttpHead, BytesSource {
         }
 
         @Override
-        public final Iterable<Header> headers() {
+        public final Iterable<Prop> headers() {
             return origin.headers();
         }
 

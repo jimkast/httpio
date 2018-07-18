@@ -3,7 +3,7 @@ package org.jimkast.http.route;
 import java.util.function.Predicate;
 import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.http.HttpHead;
-import org.jimkast.http.rq.RqUri;
+import org.jimkast.http.parse.RqURI;
 
 public final class ChkForUri implements Predicate<HttpHead> {
     private final Predicate<String> match;
@@ -18,6 +18,6 @@ public final class ChkForUri implements Predicate<HttpHead> {
 
     @Override
     public boolean test(HttpHead head) {
-        return match.test(new RqUri(head).toString());
+        return match.test(new RqURI(head).toString());
     }
 }
