@@ -6,10 +6,10 @@ import java.net.URLConnection;
 import java.util.Date;
 import org.cactoos.Scalar;
 import org.cactoos.scalar.StickyScalar;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.head.HeadWithHeadersPairs;
 import org.jimkast.http.rs.RsInput;
+import org.jimkast.map.Prop;
 import org.jimkast.text.TextEnvelope;
 
 public final class RsURL extends HttpOut.Envelope {

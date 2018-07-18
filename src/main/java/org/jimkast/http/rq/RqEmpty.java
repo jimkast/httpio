@@ -4,11 +4,11 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collections;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
 import org.jimkast.io.BytesSource;
+import org.jimkast.map.Prop;
 
 public final class RqEmpty implements HttpIn, HttpOut {
     private static final HttpLine LINE = new HttpLine.Raw("GET", "/", "HTTP1/1");

@@ -3,6 +3,7 @@ package org.jimkast.http;
 import java.io.IOException;
 import java.io.InputStream;
 import org.cactoos.Input;
+import org.jimkast.map.Prop;
 
 public interface HttpIn extends HttpHead, Input {
     @Override

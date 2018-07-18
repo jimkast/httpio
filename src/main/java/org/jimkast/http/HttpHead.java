@@ -1,6 +1,7 @@
 package org.jimkast.http;
 
 import java.util.Iterator;
+import org.jimkast.map.Prop;
 
 public interface HttpHead {
     HttpLine line();

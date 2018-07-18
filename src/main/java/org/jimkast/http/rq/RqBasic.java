@@ -5,11 +5,11 @@ import java.io.InputStream;
 import java.util.Collections;
 import org.cactoos.Input;
 import org.cactoos.io.InputOf;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.http.head.HeadBasic;
+import org.jimkast.map.Prop;
 
 public final class RqBasic implements HttpIn {
     private final HttpHead head;

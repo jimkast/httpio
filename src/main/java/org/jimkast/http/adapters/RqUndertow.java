@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import io.undertow.server.HttpServerExchange;
 import io.undertow.util.HeaderValues;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.io.InputStreamNoClose;
+import org.jimkast.map.Prop;
 
 public final class RqUndertow implements HttpIn {
     private final HttpServerExchange exchange;

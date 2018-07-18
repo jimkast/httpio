@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Collections;
 import org.cactoos.Input;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
@@ -12,6 +11,7 @@ import org.jimkast.http.head.HeadBasic;
 import org.jimkast.http.head.StatusLineBasic;
 import org.jimkast.io.BytesSource;
 import org.jimkast.io.bs.BsInput;
+import org.jimkast.map.Prop;
 
 public final class RsBasic implements HttpOut {
     private final HttpHead head;

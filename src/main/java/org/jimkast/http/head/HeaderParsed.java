@@ -2,7 +2,7 @@ package org.jimkast.http.head;
 
 import org.cactoos.scalar.StickyScalar;
 import org.cactoos.scalar.UncheckedScalar;
-import org.jimkast.http.Prop;
+import org.jimkast.map.Prop;
 
 public final class HeaderParsed implements Prop {
     private final UncheckedScalar<String[]> parts;

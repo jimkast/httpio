@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import com.sun.net.httpserver.HttpExchange;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
+import org.jimkast.map.Prop;
 
 public final class RqSun implements HttpIn {
     private final HttpExchange exchange;

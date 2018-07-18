@@ -2,9 +2,9 @@ package org.jimkast.http.head;
 
 import java.util.Arrays;
 import java.util.Collections;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpLine;
+import org.jimkast.map.Prop;
 
 public final class HeadBasic implements HttpHead {
     private final HttpLine line;

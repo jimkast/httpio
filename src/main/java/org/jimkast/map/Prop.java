@@ -1,4 +1,4 @@
-package org.jimkast.http;
+package org.jimkast.map;
 
 public interface Prop {
     String name();

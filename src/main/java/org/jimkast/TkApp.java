@@ -3,6 +3,8 @@ package org.jimkast;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Paths;
+import org.jimkast.bool.And;
+import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.route.ChkForUri;
 import org.jimkast.http.route.ChkMethod;
@@ -14,8 +16,6 @@ import org.jimkast.http.rs.RsBasic;
 import org.jimkast.http.rs.RsText;
 import org.jimkast.http.tk.TkFiles;
 import org.jimkast.http.tk.TkFixed;
-import org.jimkast.bool.And;
-import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.io.BytesSource;
 
 public final class TkApp extends HttpServerMapping.Envelope {

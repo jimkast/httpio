@@ -1,8 +1,8 @@
 package org.jimkast.http.rs;
 
 
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
+import org.jimkast.map.Prop;
 import org.jimkast.text.TextEnvelope;
 
 public final class HttpHeaderValue extends TextEnvelope {

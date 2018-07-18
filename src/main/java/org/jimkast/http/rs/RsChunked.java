@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import org.cactoos.iterable.Joined;
-import org.jimkast.http.Prop;
-import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpLine;
+import org.jimkast.http.HttpOut;
 import org.jimkast.io.BytesSource;
+import org.jimkast.map.Prop;
 import sun.net.www.http.ChunkedOutputStream;
 
 public final class RsChunked implements HttpOut {

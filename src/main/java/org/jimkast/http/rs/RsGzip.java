@@ -1,10 +1,10 @@
 package org.jimkast.http.rs;
 
 import java.util.zip.GZIPOutputStream;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.head.HeadWithHeadersPairs;
 import org.jimkast.io.bs.BsDecorated;
+import org.jimkast.map.Prop;
 
 public final class RsGzip extends HttpOut.Envelope {
     public RsGzip(HttpOut origin) {

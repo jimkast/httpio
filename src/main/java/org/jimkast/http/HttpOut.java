@@ -3,6 +3,7 @@ package org.jimkast.http;
 import java.io.IOException;
 import java.io.OutputStream;
 import org.jimkast.io.BytesSource;
+import org.jimkast.map.Prop;
 
 public interface HttpOut extends HttpHead, BytesSource {
     @Override

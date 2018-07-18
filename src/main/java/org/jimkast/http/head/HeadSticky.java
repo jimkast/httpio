@@ -1,10 +1,10 @@
 package org.jimkast.http.head;
 
 import org.cactoos.iterable.StickyIterable;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
+import org.jimkast.map.Prop;
 
 public final class HeadSticky implements HttpHead {
     private final HttpLine line;

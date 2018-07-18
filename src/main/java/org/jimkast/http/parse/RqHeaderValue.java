@@ -1,7 +1,7 @@
 package org.jimkast.http.parse;
 
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
+import org.jimkast.map.Prop;
 import org.jimkast.text.TextEnvelope;
 
 public final class RqHeaderValue extends TextEnvelope {

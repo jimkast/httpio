@@ -2,10 +2,10 @@ package org.jimkast.http.head;
 
 import java.util.Arrays;
 import org.cactoos.iterable.Joined;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.HttpLine;
 import org.jimkast.http.rs.RsEmpty;
+import org.jimkast.map.Prop;
 
 public final class HeadWithHeadersPairs implements HttpHead {
     private final HttpHead origin;

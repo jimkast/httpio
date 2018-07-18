@@ -7,11 +7,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import org.cactoos.list.StickyList;
-import org.jimkast.http.Prop;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.rq.RqCachedHead;
+import org.jimkast.map.Prop;
 
 public final class WireJdk implements HttpCodec {
     private final HttpURLConnection conn;
