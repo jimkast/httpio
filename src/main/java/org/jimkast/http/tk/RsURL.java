@@ -7,7 +7,7 @@ import java.util.Date;
 import org.cactoos.Scalar;
 import org.cactoos.scalar.StickyScalar;
 import org.jimkast.http.HttpOut;
-import org.jimkast.http.head.HeadWithHeadersPairs;
+import org.jimkast.http.head.HeadWithHeaders;
 import org.jimkast.http.rs.RsInput;
 import org.jimkast.map.Prop;
 import org.jimkast.text.TextEnvelope;
@@ -29,7 +29,7 @@ public final class RsURL extends HttpOut.Envelope {
         super(
             new RsInput(
                 () -> conn.value().getInputStream(),
-                new HeadWithHeadersPairs(
+                new HeadWithHeaders(
                     new Prop.Simple(
                         "Last-Modified",
                         new TextEnvelope(() -> new Date(conn.value().getLastModified()).toInstant().toString())

@@ -8,7 +8,7 @@ import java.nio.file.Path;
 import java.time.Instant;
 import org.cactoos.Scalar;
 import org.jimkast.http.HttpOut;
-import org.jimkast.http.head.HeadWithHeadersPairs;
+import org.jimkast.http.head.HeadWithHeaders;
 import org.jimkast.http.rs.RsBasic;
 import org.jimkast.io.BytesSource;
 import org.jimkast.io.bs.BsFile;
@@ -42,7 +42,7 @@ public final class RsFile extends HttpOut.Envelope {
     public RsFile(Number length, Scalar<Instant> date, BytesSource body) {
         super(
             new RsBasic(
-                new HeadWithHeadersPairs(
+                new HeadWithHeaders(
                     new Prop.Simple("Content-Length", new StringValue(length)),
                     new Prop.Simple("Last-Modified", new TextEnvelope(() -> date.value().toString()))
                 ),
