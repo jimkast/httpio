@@ -12,8 +12,7 @@ import org.jimkast.http.parse.line.RqURI;
 import org.jimkast.http.route.TkNotFound;
 import org.jimkast.http.rs.RsBasic;
 import org.jimkast.io.bs.BsInput;
-import org.jimkast.text.Concat;
-import org.jimkast.text.TextEnvelope;
+import org.jimkast.map.Prop;
 
 public final class TkClasspath implements HttpServerMapping {
     private final HttpServerMapping notFound;
@@ -39,7 +38,7 @@ public final class TkClasspath implements HttpServerMapping {
         } else {
             UncheckedScalar<URLConnection> conn = new UncheckedScalar<>(new StickyScalar<>(url::openConnection));
             res = new RsBasic(
-                new HeadWithHeaders(new Concat("Content-Length: ", new TextEnvelope(() -> String.valueOf(conn.value().getContentLength())))),
+                new HeadWithHeaders(new Prop.Simple("Content-Length", String.valueOf(conn.value().getContentLength()))),
                 new BsInput(() -> conn.value().getInputStream())
             );
         }

@@ -38,9 +38,9 @@ public final class RqServlet implements HttpIn {
                 headers.add(new Prop.Simple(name, headerValues.nextElement()));
             }
         }
-        headers.add(new Prop.Simple("X-Takes-LocalAddress", req.getLocalAddr()));
-        headers.add(new Prop.Simple("X-Takes-LocalPort", String.valueOf(req.getLocalPort())));
-        headers.add(new Prop.Simple("X-Takes-RemoteAddress", req.getRemoteAddr()));
+        headers.add(new Prop.Simple("X-Meta-LocalAddress", req.getLocalAddr()));
+        headers.add(new Prop.Simple("X-Meta-LocalPort", String.valueOf(req.getLocalPort())));
+        headers.add(new Prop.Simple("X-Meta-RemoteAddress", req.getRemoteAddr()));
         return headers;
     }
 

@@ -1,11 +1,11 @@
 package org.jimkast.text;
 
-public final class SubstringBefore extends TextEnvelope {
-    public SubstringBefore(CharSequence origin, CharSequence after) {
+public final class TextBefore extends TextEnvelope {
+    public TextBefore(CharSequence origin, CharSequence after) {
         this(origin, after, "");
     }
 
-    public SubstringBefore(CharSequence origin, CharSequence after, CharSequence def) {
+    public TextBefore(CharSequence origin, CharSequence after, CharSequence def) {
         super(() -> {
             String s = origin.toString();
             String a = after.toString();

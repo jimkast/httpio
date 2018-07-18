@@ -13,11 +13,9 @@ public final class UriComponents extends ListEnvelope<String> {
     }
 
     public UriComponents(CharSequence uri) {
-        super(new StickyScalar<>(
-            () -> new Mapped<>(
-                i -> URLDecoder.decode(i, "UTF-8"),
-                Arrays.asList(new UriPath(uri).toString().split("/"))
-            )
-        ));
+        super(new StickyScalar<>(() -> new Mapped<>(
+            i -> URLDecoder.decode(i, "UTF-8"),
+            Arrays.asList(new UriPath(uri).toString().split("/"))
+        )));
     }
 }

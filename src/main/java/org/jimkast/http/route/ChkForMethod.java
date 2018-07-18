@@ -2,7 +2,6 @@ package org.jimkast.http.route;
 
 import java.util.Arrays;
 import java.util.function.Predicate;
-import org.jimkast.bool.ChkMatchAny;
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.parse.line.RqMethod;
 
@@ -14,7 +13,14 @@ public final class ChkForMethod implements Predicate<HttpHead> {
     }
 
     public ChkForMethod(Iterable<String> methods) {
-        this(s -> new ChkMatchAny<>(s).test(methods));
+        this(method -> {
+            for (String m : methods) {
+                if (method.equalsIgnoreCase(m)) {
+                    return true;
+                }
+            }
+            return false;
+        });
     }
 
     public ChkForMethod(Predicate<String> check) {

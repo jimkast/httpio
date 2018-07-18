@@ -2,7 +2,7 @@ package org.jimkast.http.parse.uri;
 
 import org.jimkast.http.HttpHead;
 import org.jimkast.http.parse.line.RqURI;
-import org.jimkast.text.SubstringBefore;
+import org.jimkast.text.TextBefore;
 import org.jimkast.text.TextEnvelope;
 
 public final class UriPath extends TextEnvelope {
@@ -11,6 +11,6 @@ public final class UriPath extends TextEnvelope {
     }
 
     public UriPath(CharSequence str) {
-        super(new SubstringBefore(str, "?", str));
+        super(new TextBefore(str, "?", str));
     }
 }

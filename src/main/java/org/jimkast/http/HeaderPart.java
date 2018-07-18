@@ -2,8 +2,8 @@ package org.jimkast.http;
 
 import org.jimkast.http.parse.header.HeaderMetaProps;
 import org.jimkast.map.Prop;
-import org.jimkast.text.SubstringAfter;
-import org.jimkast.text.SubstringBefore;
+import org.jimkast.text.TextAfter;
+import org.jimkast.text.TextBefore;
 
 public interface HeaderPart {
     Iterable<Prop> props();
@@ -17,8 +17,8 @@ public interface HeaderPart {
 
         public Parsed(CharSequence text) {
             this(
-                new HeaderMetaProps(new SubstringAfter(text, ";", text)),
-                new SubstringBefore(text, ";")
+                new HeaderMetaProps(new TextAfter(text, ";", text)),
+                new TextBefore(text, ";")
             );
         }
 

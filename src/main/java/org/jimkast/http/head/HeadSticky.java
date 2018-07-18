@@ -12,8 +12,8 @@ public final class HeadSticky implements HttpHead {
 
     public HeadSticky(HttpIn origin) {
         this(
-            new HttpLine.Raw(() -> origin.line().iterator()),
-            new StickyIterable<>(() -> origin.headers().iterator())
+            new HttpLine.Raw(new StickyIterable<>(new HttpHead.LineParts(origin))),
+            new StickyIterable<>(new HttpHead.Headers(origin))
         );
     }
 

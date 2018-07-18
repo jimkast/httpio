@@ -1,11 +1,11 @@
 package org.jimkast.text;
 
-public final class SubstringAfterLastMatch extends TextEnvelope {
-    public SubstringAfterLastMatch(CharSequence origin, CharSequence after) {
+public final class TextAfterLastMatch extends TextEnvelope {
+    public TextAfterLastMatch(CharSequence origin, CharSequence after) {
         this(origin, after, "");
     }
 
-    public SubstringAfterLastMatch(CharSequence origin, CharSequence after, CharSequence def) {
+    public TextAfterLastMatch(CharSequence origin, CharSequence after, CharSequence def) {
         super(() -> {
             String s = origin.toString();
             String a = after.toString();
