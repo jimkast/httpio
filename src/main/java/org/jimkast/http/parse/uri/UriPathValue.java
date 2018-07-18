@@ -1,4 +1,4 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.uri;
 
 import java.util.List;
 import org.cactoos.scalar.ItemAt;

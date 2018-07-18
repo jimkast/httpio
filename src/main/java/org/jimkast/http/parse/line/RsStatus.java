@@ -1,4 +1,4 @@
-package org.jimkast.http.rs;
+package org.jimkast.http.parse.line;
 
 
 import org.cactoos.scalar.ItemAt;

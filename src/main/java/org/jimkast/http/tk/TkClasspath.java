@@ -8,7 +8,7 @@ import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.head.HeadWithHeaders;
-import org.jimkast.http.parse.RqURI;
+import org.jimkast.http.parse.line.RqURI;
 import org.jimkast.http.route.TkNotFound;
 import org.jimkast.http.rs.RsBasic;
 import org.jimkast.io.bs.BsInput;

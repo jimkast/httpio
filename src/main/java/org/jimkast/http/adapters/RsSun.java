@@ -7,8 +7,8 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import org.cactoos.Func;
 import org.jimkast.http.HttpOut;
-import org.jimkast.http.parse.HttpLength;
-import org.jimkast.http.rs.RsStatus;
+import org.jimkast.http.parse.header.HttpLength;
+import org.jimkast.http.parse.line.RsStatus;
 import org.jimkast.map.Prop;
 
 public final class RsSun implements Func<HttpExchange, HttpExchange> {

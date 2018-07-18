@@ -1,4 +1,4 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.header;
 
 import java.util.function.Predicate;
 import org.jimkast.bool.ChkEqualsIgnoreCase;

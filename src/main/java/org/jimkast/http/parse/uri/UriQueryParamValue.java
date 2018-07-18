@@ -1,4 +1,4 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.uri;
 
 import java.util.Map;
 import org.jimkast.http.HttpHead;

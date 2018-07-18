@@ -5,7 +5,7 @@ import java.nio.file.Path;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
-import org.jimkast.http.parse.UriPath;
+import org.jimkast.http.parse.uri.UriPath;
 import org.jimkast.http.route.TkNotFound;
 import org.jimkast.map.Mapping;
 

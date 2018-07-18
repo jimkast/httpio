@@ -1,6 +1,7 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.uri;
 
 import org.jimkast.http.HttpHead;
+import org.jimkast.http.parse.line.RqURI;
 import org.jimkast.text.SubstringBefore;
 import org.jimkast.text.TextEnvelope;
 

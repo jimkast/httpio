@@ -3,7 +3,7 @@ package org.jimkast.http.route;
 import java.util.function.Predicate;
 import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.bool.ChkMatchAny;
-import org.jimkast.http.parse.HeaderListValues;
+import org.jimkast.http.parse.header.HeaderListValues;
 
 public final class ChkHeaderListValue implements Predicate<String> {
     private final Predicate<String> check;

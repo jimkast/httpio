@@ -7,7 +7,7 @@ import org.jimkast.bool.And;
 import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.route.ChkForUri;
-import org.jimkast.http.route.ChkMethod;
+import org.jimkast.http.route.ChkForMethod;
 import org.jimkast.http.route.RtCaseMatch;
 import org.jimkast.http.route.RtRegex;
 import org.jimkast.http.route.RtSimple;
@@ -26,7 +26,7 @@ public final class TkApp extends HttpServerMapping.Envelope {
                 new RtSimple(
                     new And<>(
                         new ChkForUri(new ChkEqualsIgnoreCase("/ccc")),
-                        new ChkMethod("GET")
+                        new ChkForMethod("GET")
                     ),
                     new TkFixed(new RsText("eee 235 346 rthfdghgf"))
                 ),

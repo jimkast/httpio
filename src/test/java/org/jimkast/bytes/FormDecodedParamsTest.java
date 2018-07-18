@@ -2,7 +2,7 @@ package org.jimkast.bytes;
 
 import java.util.Map;
 import org.jimkast.text.stream.TextInputOf;
-import org.jimkast.http.parse.FormDecodedParams;
+import org.jimkast.http.parse.params.FormDecodedParams;
 import org.junit.Test;
 
 public class FormDecodedParamsTest {

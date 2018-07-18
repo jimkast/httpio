@@ -4,7 +4,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 import org.cactoos.Func;
 import org.jimkast.http.HttpOut;
-import org.jimkast.http.rs.RsStatus;
+import org.jimkast.http.parse.line.RsStatus;
 import org.jimkast.map.Prop;
 
 public final class RsServlet implements Func<HttpServletResponse, HttpServletResponse> {

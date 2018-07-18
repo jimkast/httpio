@@ -3,7 +3,7 @@ package org.jimkast.http.route;
 import java.util.function.Predicate;
 import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.http.HttpHead;
-import org.jimkast.http.parse.HttpHeaderValue;
+import org.jimkast.http.parse.header.HttpHeaderValue;
 
 public final class ChkForHeader implements Predicate<HttpHead> {
     private final CharSequence name;

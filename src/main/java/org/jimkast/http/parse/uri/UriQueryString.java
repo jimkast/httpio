@@ -1,4 +1,4 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.uri;
 
 import org.jimkast.text.SubstringAfter;
 import org.jimkast.text.TextEnvelope;

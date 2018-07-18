@@ -1,6 +1,7 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.line;
 
 import org.jimkast.http.HttpHead;
+import org.jimkast.http.parse.header.HttpHeaderValue;
 import org.jimkast.text.Concat;
 import org.jimkast.text.TextEnvelope;
 

@@ -1,4 +1,4 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.header;
 
 import org.jimkast.http.HttpHead;
 import org.jimkast.text.TextEnvelope;

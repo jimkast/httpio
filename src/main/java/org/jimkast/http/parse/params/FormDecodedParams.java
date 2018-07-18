@@ -1,4 +1,4 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.params;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

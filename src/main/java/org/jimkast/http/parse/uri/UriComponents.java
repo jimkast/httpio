@@ -1,4 +1,4 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.uri;
 
 import java.net.URLDecoder;
 import java.util.Arrays;

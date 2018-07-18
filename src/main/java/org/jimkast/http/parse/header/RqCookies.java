@@ -1,9 +1,8 @@
-package org.jimkast.http.parse;
+package org.jimkast.http.parse.header;
 
 import org.jimkast.http.HttpHead;
 import org.jimkast.iterable.IterableEnvelope;
 import org.jimkast.map.Prop;
-import org.jimkast.map.PropsSplit;
 
 public final class RqCookies extends IterableEnvelope<Prop> {
     public RqCookies(HttpHead head) {
@@ -11,6 +10,6 @@ public final class RqCookies extends IterableEnvelope<Prop> {
     }
 
     public RqCookies(CharSequence header) {
-        super(new PropsSplit("\\s*;\\s*", "\\s*=\\s*", header));
+        super(new HeaderMetaProps(header));
     }
 }
