@@ -8,7 +8,7 @@ public final class TextUrlDecoded extends TextEnvelope {
         this(str, "UTF-8");
     }
 
-    public TextUrlDecoded(CharSequence str, String charset) {
-        super(() -> URLDecoder.decode(str.toString(), charset));
+    public TextUrlDecoded(CharSequence str, CharSequence charset) {
+        super(() -> URLDecoder.decode(str.toString(), charset.toString()));
     }
 }

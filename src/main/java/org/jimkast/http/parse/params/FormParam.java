@@ -5,10 +5,10 @@ import org.jimkast.map.prop.PropMappedBoth;
 import org.jimkast.map.prop.PropSplit;
 
 public final class FormParam extends Prop.Envelope {
-    public FormParam(CharSequence text, String charset) {
+    public FormParam(CharSequence text, CharSequence charset) {
         super(
             new PropMappedBoth(
-                s -> new TextUrlDecoded(s, charset).toString(),
+                s -> new TextUrlDecoded(s, charset.toString()).toString(),
                 new PropSplit("=", text)
             )
         );

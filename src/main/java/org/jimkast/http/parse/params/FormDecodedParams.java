@@ -1,6 +1,5 @@
 package org.jimkast.http.parse.params;
 
-import java.nio.charset.Charset;
 import org.cactoos.Input;
 import org.cactoos.iterable.Mapped;
 import org.jimkast.iterable.IterableEnvelope;
@@ -14,23 +13,24 @@ public final class FormDecodedParams extends IterableEnvelope<Prop> {
         this(new TextInputOf(text));
     }
 
-    public FormDecodedParams(String charset, CharSequence text) {
+    public FormDecodedParams(CharSequence charset, CharSequence text) {
         this(charset, new TextInputOf(text));
     }
+
 
     public FormDecodedParams(Input in) {
         this(new TextInputOf(in));
     }
 
-    public FormDecodedParams(Charset charset, Input in) {
-        this(new TextInputOf(charset, in));
+    public FormDecodedParams(CharSequence charset, Input in) {
+        this(charset, new TextInputOf(charset, in));
     }
 
     public FormDecodedParams(TextInput in) {
         this("UTF-8", in);
     }
 
-    public FormDecodedParams(String charset, TextInput in) {
+    public FormDecodedParams(CharSequence charset, TextInput in) {
         super(
             new Mapped<>(
                 p -> new FormParam(p, charset),
