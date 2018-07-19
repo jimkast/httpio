@@ -12,7 +12,7 @@ import org.jimkast.http.head.HeadWithHeaders;
 import org.jimkast.http.rs.RsBasic;
 import org.jimkast.io.BytesSource;
 import org.jimkast.io.bs.BsFile;
-import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 import org.jimkast.number.LongEnvelope;
 import org.jimkast.text.StringValue;
 import org.jimkast.text.TextEnvelope;
@@ -43,8 +43,8 @@ public final class RsFile extends HttpOut.Envelope {
         super(
             new RsBasic(
                 new HeadWithHeaders(
-                    new Prop.Simple("Content-Length", new StringValue(length)),
-                    new Prop.Simple("Last-Modified", new TextEnvelope(() -> date.value().toString()))
+                    new PropSimple("Content-Length", new StringValue(length)),
+                    new PropSimple("Last-Modified", new TextEnvelope(() -> date.value().toString()))
                 ),
                 body
             )

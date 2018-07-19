@@ -8,6 +8,7 @@ import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
 import org.jimkast.io.BytesSource;
 import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 import sun.net.www.http.ChunkedOutputStream;
 
 public final class RsChunked implements HttpOut {
@@ -24,7 +25,7 @@ public final class RsChunked implements HttpOut {
 
     @Override
     public Iterable<Prop> headers() {
-        return new Joined<>(new Prop.Simple("Transfer-Encoding", "chucked"), out.headers());
+        return new Joined<>(new PropSimple("Transfer-Encoding", "chucked"), out.headers());
     }
 
     @Override

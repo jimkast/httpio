@@ -10,6 +10,7 @@ import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.io.InputStreamNoClose;
 import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 
 public final class RqUndertow implements HttpIn {
     private final HttpServerExchange exchange;
@@ -34,7 +35,7 @@ public final class RqUndertow implements HttpIn {
         for (HeaderValues header : exchange.getRequestHeaders()) {
             String name = header.getHeaderName().toString();
             for (String value : header) {
-                headers.add(new Prop.Simple(name, value));
+                headers.add(new PropSimple(name, value));
             }
         }
         return headers;

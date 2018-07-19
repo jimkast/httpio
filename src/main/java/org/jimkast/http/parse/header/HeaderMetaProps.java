@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 import org.jimkast.http.HttpHead;
 import org.jimkast.iterable.IterableEnvelope;
 import org.jimkast.map.Prop;
-import org.jimkast.map.PropsSplit;
+import org.jimkast.map.props.PropsSplit;
 
 public final class HeaderMetaProps extends IterableEnvelope<Prop> {
     private static final Pattern ptn1 = Pattern.compile("\\s*;\\s*");

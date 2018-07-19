@@ -1,8 +1,9 @@
-package org.jimkast.map;
+package org.jimkast.map.props;
 
 import java.util.Map;
 import java.util.TreeMap;
 import org.cactoos.map.MapEnvelope;
+import org.jimkast.map.Prop;
 
 public final class PropsSingleMap extends MapEnvelope<String, String> {
     public PropsSingleMap(Iterable<Prop> props) {

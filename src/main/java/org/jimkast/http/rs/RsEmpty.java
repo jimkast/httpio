@@ -1,7 +1,6 @@
 package org.jimkast.http.rs;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collections;
@@ -25,12 +24,12 @@ public final class RsEmpty implements HttpIn, HttpOut {
     }
 
     @Override
-    public InputStream stream() throws IOException {
+    public InputStream stream() {
         return new ByteArrayInputStream(new byte[0]);
     }
 
     @Override
-    public BytesSource print(OutputStream out) throws IOException {
+    public BytesSource print(OutputStream out) {
         return this;
     }
 }

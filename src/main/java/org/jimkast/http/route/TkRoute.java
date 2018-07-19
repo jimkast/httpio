@@ -5,6 +5,7 @@ import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpRoute;
 import org.jimkast.http.HttpServerMapping;
+import org.jimkast.http.tk.TkNotFound;
 
 public final class TkRoute implements HttpServerMapping {
     private final HttpServerMapping Default;

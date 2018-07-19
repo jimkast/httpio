@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 
 public final class RqServlet implements HttpIn {
     private final HttpServletRequest req;
@@ -35,12 +36,12 @@ public final class RqServlet implements HttpIn {
             String name = headerNames.nextElement();
             Enumeration<String> headerValues = req.getHeaders(name);
             while (headerValues.hasMoreElements()) {
-                headers.add(new Prop.Simple(name, headerValues.nextElement()));
+                headers.add(new PropSimple(name, headerValues.nextElement()));
             }
         }
-        headers.add(new Prop.Simple("X-Meta-LocalAddress", req.getLocalAddr()));
-        headers.add(new Prop.Simple("X-Meta-LocalPort", String.valueOf(req.getLocalPort())));
-        headers.add(new Prop.Simple("X-Meta-RemoteAddress", req.getRemoteAddr()));
+        headers.add(new PropSimple("X-Meta-LocalAddress", req.getLocalAddr()));
+        headers.add(new PropSimple("X-Meta-LocalPort", String.valueOf(req.getLocalPort())));
+        headers.add(new PropSimple("X-Meta-RemoteAddress", req.getRemoteAddr()));
         return headers;
     }
 

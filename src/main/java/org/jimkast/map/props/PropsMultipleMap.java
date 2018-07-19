@@ -1,10 +1,11 @@
-package org.jimkast.map;
+package org.jimkast.map.props;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import org.cactoos.map.MapEnvelope;
+import org.jimkast.map.Prop;
 
 public final class PropsMultipleMap extends MapEnvelope<String, List<String>> {
     public PropsMultipleMap(Iterable<Prop> props) {

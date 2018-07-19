@@ -9,6 +9,7 @@ import com.sun.net.httpserver.HttpExchange;
 import org.jimkast.http.HttpIn;
 import org.jimkast.http.HttpLine;
 import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 
 public final class RqSun implements HttpIn {
     private final HttpExchange exchange;
@@ -32,7 +33,7 @@ public final class RqSun implements HttpIn {
         Map<String, List<String>> headers = exchange.getRequestHeaders();
         for (String name : exchange.getRequestHeaders().keySet()) {
             for (String value : headers.get(name)) {
-                result.add(new Prop.Simple(name, value));
+                result.add(new PropSimple(name, value));
             }
         }
         return result;

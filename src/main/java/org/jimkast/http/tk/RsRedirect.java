@@ -5,7 +5,7 @@ import org.jimkast.http.head.HeadWithHeaders;
 import org.jimkast.http.head.HeadWithStatus;
 import org.jimkast.http.rs.RsBasic;
 import org.jimkast.http.rs.RsEmpty;
-import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 
 public final class RsRedirect extends HttpOut.Envelope {
     public RsRedirect(CharSequence location) {
@@ -23,7 +23,7 @@ public final class RsRedirect extends HttpOut.Envelope {
                     code,
                     new HeadWithHeaders(
                         origin,
-                        new Prop.Simple("Location", location)
+                        new PropSimple("Location", location)
                     )
                 ),
                 origin

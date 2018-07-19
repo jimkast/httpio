@@ -3,7 +3,7 @@ package org.jimkast.http.parse.header;
 import java.util.function.Predicate;
 import org.jimkast.bool.ChkEqualsIgnoreCase;
 import org.jimkast.http.HttpHead;
-import org.jimkast.map.PropsValue;
+import org.jimkast.map.props.PropsValue;
 import org.jimkast.text.TextEnvelope;
 
 public final class RqCookieValue extends TextEnvelope {

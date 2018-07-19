@@ -1,7 +1,7 @@
 package org.jimkast.http.head;
 
 import org.jimkast.http.HttpHead;
-import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 import org.jimkast.text.Concat;
 
 public final class HeadWithContentType extends HttpHead.Envelope {
@@ -10,6 +10,6 @@ public final class HeadWithContentType extends HttpHead.Envelope {
     }
 
     public HeadWithContentType(CharSequence value, HttpHead origin) {
-        super(new HeadWithHeaders(origin, new Prop.Simple("Content-Type", value)));
+        super(new HeadWithHeaders(origin, new PropSimple("Content-Type", value)));
     }
 }

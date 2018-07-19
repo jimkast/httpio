@@ -1,6 +1,7 @@
-package org.jimkast.map;
+package org.jimkast.map.props;
 
 import java.util.function.Predicate;
+import org.jimkast.map.Prop;
 import org.jimkast.text.TextEnvelope;
 
 public final class PropsValue extends TextEnvelope {

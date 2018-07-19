@@ -9,10 +9,9 @@ import org.jimkast.http.HttpOut;
 import org.jimkast.http.HttpServerMapping;
 import org.jimkast.http.head.HeadWithHeaders;
 import org.jimkast.http.parse.line.RqURI;
-import org.jimkast.http.route.TkNotFound;
 import org.jimkast.http.rs.RsBasic;
 import org.jimkast.io.bs.BsInput;
-import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 
 public final class TkClasspath implements HttpServerMapping {
     private final HttpServerMapping notFound;
@@ -38,7 +37,7 @@ public final class TkClasspath implements HttpServerMapping {
         } else {
             UncheckedScalar<URLConnection> conn = new UncheckedScalar<>(new StickyScalar<>(url::openConnection));
             res = new RsBasic(
-                new HeadWithHeaders(new Prop.Simple("Content-Length", String.valueOf(conn.value().getContentLength()))),
+                new HeadWithHeaders(new PropSimple("Content-Length", String.valueOf(conn.value().getContentLength()))),
                 new BsInput(() -> conn.value().getInputStream())
             );
         }

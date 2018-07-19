@@ -1,9 +1,10 @@
-package org.jimkast.map;
+package org.jimkast.map.props;
 
 import java.util.function.Predicate;
 import org.cactoos.iterable.Filtered;
 import org.cactoos.iterable.Mapped;
 import org.jimkast.iterable.IterableEnvelope;
+import org.jimkast.map.Prop;
 
 public final class PropsValues extends IterableEnvelope<String> {
     public PropsValues(String name, Iterable<Prop> props) {

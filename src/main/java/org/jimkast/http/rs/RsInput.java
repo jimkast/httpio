@@ -7,7 +7,7 @@ import org.jimkast.http.head.HeadWithHeaders;
 import org.jimkast.io.InputResettable;
 import org.jimkast.io.InputWithCachedLength;
 import org.jimkast.io.InputWithLength;
-import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 import org.jimkast.text.TextEnvelope;
 
 public final class RsInput extends HttpOut.Envelope {
@@ -32,7 +32,7 @@ public final class RsInput extends HttpOut.Envelope {
             new RsBasic(
                 new HeadWithHeaders(
                     origin,
-                    new Prop.Simple("Content-Length", new TextEnvelope(() -> String.valueOf(input.size())))
+                    new PropSimple("Content-Length", new TextEnvelope(() -> String.valueOf(input.size())))
                 ),
                 input
             )

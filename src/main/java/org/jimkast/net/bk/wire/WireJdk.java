@@ -12,6 +12,7 @@ import org.jimkast.http.HttpLine;
 import org.jimkast.http.HttpOut;
 import org.jimkast.http.rq.RqCachedHead;
 import org.jimkast.map.Prop;
+import org.jimkast.map.prop.PropSimple;
 
 public final class WireJdk implements HttpCodec {
     private final HttpURLConnection conn;
@@ -35,7 +36,7 @@ public final class WireJdk implements HttpCodec {
                     List<Prop> headers = new ArrayList<>();
                     int total = conn.getHeaderFields().size();
                     for (int i = 1; i < total; i++) {
-                        headers.add(new Prop.Simple(conn.getHeaderFieldKey(i), conn.getHeaderField(i)));
+                        headers.add(new PropSimple(conn.getHeaderFieldKey(i), conn.getHeaderField(i)));
                     }
                     return headers;
                 }
