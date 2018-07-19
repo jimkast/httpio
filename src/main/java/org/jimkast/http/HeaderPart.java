@@ -17,8 +17,8 @@ public interface HeaderPart {
 
         public Parsed(CharSequence text) {
             this(
-                new HeaderMetaProps(new TextAfter(text, ";", text)),
-                new TextBefore(text, ";")
+                new HeaderMetaProps(new TextAfter(text, ";")),
+                new TextBefore(text, ";", text)
             );
         }
 

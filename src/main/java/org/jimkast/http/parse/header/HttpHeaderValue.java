@@ -10,6 +10,6 @@ public final class HttpHeaderValue extends TextEnvelope {
     }
 
     public HttpHeaderValue(HttpHead head, String name, CharSequence def) {
-        super(new ItemAt<>(new HttpHeaderValues(head, name), 1, input -> def.toString()));
+        super(new ItemAt<>(new HttpHeaderValues(head, name), 0, input -> def.toString()));
     }
 }
