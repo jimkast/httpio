@@ -6,7 +6,7 @@ import org.jimkast.http.HttpHead;
 import org.jimkast.iterable.IterableEnvelope;
 
 public final class HeaderPartsAnalyzed extends IterableEnvelope<HeaderPart> {
-    public HeaderPartsAnalyzed(HttpHead head, String header) {
+    public HeaderPartsAnalyzed(HttpHead head, CharSequence header) {
         this(new HttpHeaderValue(head, header));
     }
 

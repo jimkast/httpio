@@ -21,7 +21,7 @@ public final class HeaderMetaProps extends IterableEnvelope<Prop> {
 
 
     public static final class CommaSeparated extends IterableEnvelope<Prop> {
-        public CommaSeparated(HttpHead head, String name) {
+        public CommaSeparated(HttpHead head, CharSequence name) {
             this(new HttpHeaderValue(head, name));
         }
 

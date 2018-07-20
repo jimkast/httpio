@@ -20,6 +20,6 @@ public final class ChkForHeader implements Predicate<HttpHead> {
 
     @Override
     public boolean test(HttpHead head) {
-        return match.test(new HttpHeaderValue(head, name.toString()).toString());
+        return match.test(new HttpHeaderValue(head, name).toString());
     }
 }

@@ -5,11 +5,11 @@ import org.jimkast.http.HttpHead;
 import org.jimkast.text.TextEnvelope;
 
 public final class HttpHeaderValue extends TextEnvelope {
-    public HttpHeaderValue(HttpHead req, String name) {
+    public HttpHeaderValue(HttpHead req, CharSequence name) {
         this(req, name, "");
     }
 
-    public HttpHeaderValue(HttpHead head, String name, CharSequence def) {
+    public HttpHeaderValue(HttpHead head, CharSequence name, CharSequence def) {
         super(new ItemAt<>(new HttpHeaderValues(head, name), 0, input -> def.toString()));
     }
 }

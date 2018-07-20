@@ -9,13 +9,13 @@ public final class PropsValue extends TextEnvelope {
         this("", check, props);
     }
 
-    public PropsValue(String name, Iterable<Prop> props) {
+    public PropsValue(CharSequence name, Iterable<Prop> props) {
         this("", name, props);
     }
 
 
-    public PropsValue(CharSequence def, String name, Iterable<Prop> props) {
-        this(def, name::equalsIgnoreCase, props);
+    public PropsValue(CharSequence def, CharSequence name, Iterable<Prop> props) {
+        this(def, s -> name.toString().equalsIgnoreCase(s), props);
     }
 
     public PropsValue(CharSequence def, Predicate<String> check, Iterable<Prop> props) {
